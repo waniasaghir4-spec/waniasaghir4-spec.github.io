@@ -8,89 +8,291 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins;
+}
 
-body{background:#070b14;color:white;}
+body{
+  background:#070b14;
+  color:white;
+}
 
+/* NAV */
 nav{
-position:fixed;top:0;width:100%;
-padding:15px 40px;display:flex;justify-content:space-between;
-align-items:center;background:rgba(10,15,25,0.9);
-z-index:1000;
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(10,15,25,0.85);
+  backdrop-filter:blur(10px);
+  z-index:1000;
 }
 
-.logo{display:flex;align-items:center;gap:10px;}
-.logo img{width:42px;height:42px;border-radius:8px;}
-.logo h2{color:#d4af37;font-size:16px;}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 
-nav a{color:white;margin-left:15px;cursor:pointer;text-decoration:none;}
-nav a:hover{color:#d4af37;}
+.logo img{
+  width:42px;
+  height:42px;
+  border-radius:8px;
+}
 
-.page{display:none;padding-top:90px;}
-.active{display:block;}
+.logo h2{
+  color:#d4af37;
+  font-size:16px;
+}
 
+/* NAV LINKS */
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:15px;
+  cursor:pointer;
+  opacity:0.8;
+}
+
+nav a:hover{
+  color:#d4af37;
+}
+
+/* PAGE SYSTEM */
+.page{
+  display:none;
+  padding-top:90px;
+}
+
+.active{
+  display:block;
+}
+
+/* HERO */
 .hero{
-height:100vh;display:flex;align-items:center;
-justify-content:center;text-align:center;
-position:relative;overflow:hidden;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
 }
 
+/* BACKGROUND IMAGE */
 .hero-bg{
-position:absolute;inset:0;
-background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd") center/cover no-repeat;
-z-index:-2;
+  position:absolute;
+  inset:0;
+  background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd") center/cover no-repeat;
+  z-index:-2;
+  transform:scale(1.05);
 }
 
+/* OVERLAY */
 .hero-overlay{
-position:absolute;inset:0;background:rgba(0,0,0,0.6);z-index:-1;
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
 }
 
-.hero h1{font-size:50px;}
-.hero span{color:#d4af37;}
+.hero-content{
+  position:relative;
+  max-width:800px;
+}
+
+.hero h1{
+  font-size:54px;
+}
+
+.hero span{
+  color:#d4af37;
+}
 
 .btn{
-margin-top:20px;padding:14px 30px;
-background:#d4af37;color:black;
-font-weight:700;border-radius:10px;cursor:pointer;
+  margin-top:20px;
+  display:inline-block;
+  padding:14px 30px;
+  background:#d4af37;
+  color:black;
+  font-weight:700;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-section{padding:90px 10%;text-align:center;}
-h2{color:#d4af37;margin-bottom:20px;}
+/* SECTIONS */
+section{
+  padding:100px 10%;
+  text-align:center;
+}
 
+h2{
+  color:#d4af37;
+  margin-bottom:20px;
+}
+
+/* CARDS */
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:15px;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-padding:20px;border-radius:12px;
-border:1px solid rgba(212,175,55,0.2);
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:12px;
+  border:1px solid rgba(212,175,55,0.2);
 }
 
+/* PROJECTS */
 .projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+.project{
+  background:rgba(255,255,255,0.04);
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(212,175,55,0.2);
 }
 
 .project img{
-width:100%;height:180px;object-fit:cover;
-border-radius:10px;
+  width:100%;
+  height:180px;
+  object-fit:cover;
 }
 
+.project-text{
+  padding:12px;
+  text-align:left;
+}
+
+.project-text h3{
+  color:#d4af37;
+  font-size:16px;
+}
+
+.project-text p{
+  font-size:13px;
+  opacity:0.8;
+}
+
+/* OWNER */
 .owner-box{
-max-width:700px;margin:auto;
-background:rgba(255,255,255,0.05);
-padding:30px;border-radius:12px;
-border:1px solid rgba(212,175,55,0.2);
+  max-width:800px;
+  margin:auto;
+  background:rgba(255,255,255,0.04);
+  padding:30px;
+  border-radius:12px;
+  border:1px solid rgba(212,175,55,0.2); /* FIXED */
 }
 
+.owner-box img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  border:3px solid #d4af37;
+  margin-bottom:15px;
+}
+
+/* WHATSAPP */
 .whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;padding:14px;
-border-radius:50px;color:white;text-decoration:none;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:14px;
+  border-radius:50px;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* CHAT */
+#chatBtn{
+  position:fixed;
+  right:20px;
+  bottom:90px;
+  background:#d4af37;
+  color:black;
+  padding:12px 16px;
+  border-radius:50px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+#chatBox{
+  position:fixed;
+  right:20px;
+  bottom:150px;
+  width:320px;
+  background:#0b0f14;
+  border:1px solid #d4af37;
+  border-radius:12px;
+  display:none;
+  z-index:9999;
+}
+
+#header{
+  background:#d4af37;
+  color:black;
+  padding:10px;
+  font-weight:700;
+}
+
+#body{
+  height:220px;
+  overflow:auto;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.msg{padding:8px;border-radius:8px;font-size:14px;}
+.user{background:#1c2433;align-self:flex-end;}
+.bot{background:rgba(212,175,55,0.15);align-self:flex-start;}
+
+#inputBox{display:flex;border-top:1px solid #222;}
+#input{flex:1;padding:10px;background:#111;color:white;border:none;}
+#send{background:#d4af37;border:none;padding:10px;cursor:pointer;}
+
+/* ===== FINAL RESPONSIVE FIX ===== */
+
+section{
+  max-width:1200px;
+  margin:auto;
+}
+
+.hero h1{
+  font-size:clamp(28px,5vw,56px);
+}
+
+.cards{
+  gap:25px;
+}
+
+.projects{
+  gap:25px;
+}
+
+@media(min-width:1024px){
+  nav{
+    padding:20px 80px;
+  }
+
+  section{
+    padding:100px 5%;
+  }
 }
 
 </style>
@@ -99,150 +301,139 @@ border-radius:50px;color:white;text-decoration:none;
 <body>
 
 <nav>
-<div class="logo">
-<img src="logo.png">
-<h2>ROYAL SITE TRADING</h2>
-</div>
+  <div class="logo">
+    <img src="logo.png">
+    <h2>ROYAL SITE TRADING</h2>
+  </div>
 
-<div>
-<a onclick="showHome()">Home</a>
-<a onclick="showOwner()">Owner</a>
-</div>
+  <div>
+    <a onclick="showHome()">Home</a>
+    <a onclick="showOwner()">Owner</a>
+  </div>
 </nav>
 
-<!-- HOME -->
 <div id="home" class="page active">
 
-<div class="hero">
-<div class="hero-bg"></div>
-<div class="hero-overlay"></div>
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
 
-<div>
-<h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
-<div class="btn" onclick="scrollToAbout()">Discover More</div>
-</div>
-</div>
+    <div class="hero-content">
+      <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
+      <div class="btn" onclick="scrollToAbout()">Discover More</div>
+    </div>
+  </div>
 
-<!-- ABOUT -->
-<section id="about">
-<h2>About Us</h2>
-<p>
-Royal Site Trading is a leading construction material supplier in the UAE,
-delivering high-quality solutions for residential, commercial, and industrial projects.
-We specialize in steel, cement, plumbing, electrical systems, and hardware supplies.
-</p>
-</section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      We are a trusted construction supplier in UAE providing steel, cement, electrical,
+      plumbing and hardware solutions for major projects.
+    </p>
 
-<!-- WHAT WE DO -->
-<section>
-<h2>What We Do</h2>
-<div class="cards">
-<div class="card">🏗 Supply construction materials for all project sizes</div>
-<div class="card">🚚 Fast and reliable UAE-wide delivery</div>
-<div class="card">📦 Bulk supply for large-scale projects</div>
-<div class="card">🔩 Industrial and structural material solutions</div>
-</div>
-</section>
+    <div class="cards">
+      <div class="card">🏗 Construction Supply</div>
+      <div class="card">🔩 Steel Materials</div>
+      <div class="card">🚚 Fast Delivery</div>
+      <div class="card">📦 Bulk Orders</div>
+    </div>
+  </section>
 
-<!-- WHY US -->
-<section>
-<h2>Why Choose Us</h2>
-<div class="cards">
-<div class="card">✔ 10+ Years Experience</div>
-<div class="card">✔ Trusted by Contractors</div>
-<div class="card">✔ Competitive Pricing</div>
-<div class="card">✔ Quality Guaranteed</div>
-</div>
-</section>
+  <section>
+    <h2>Our Projects</h2>
 
-<!-- SERVICES -->
-<section>
-<h2>Our Services</h2>
-<div class="cards">
-<div class="card">🧱 Cement & Building Materials</div>
-<div class="card">🔩 Steel & Metal Supply</div>
-<div class="card">⚡ Electrical Systems</div>
-<div class="card">🚿 Plumbing Solutions</div>
-<div class="card">📦 Bulk Orders</div>
-</div>
-</section>
+    <div class="projects">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
+        <div class="project-text">
+          <h3>High-Rise Buildings</h3>
+          <p>Supplying premium materials for skyscrapers across UAE.</p>
+        </div>
+      </div>
 
-<!-- PROJECTS -->
-<section>
-<h2>Our Projects</h2>
-<div class="projects">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
+        <div class="project-text">
+          <h3>Road Infrastructure</h3>
+          <p>Supporting major highway development projects.</p>
+        </div>
+      </div>
 
-<div>
-<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-<p>High-rise building projects across UAE</p>
-</div>
-
-<div>
-<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
-<p>Road and infrastructure developments</p>
-</div>
-
-<div>
-<img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c">
-<p>Residential construction projects</p>
-</div>
-
-</div>
-</section>
-
-<!-- COMPANY VISION -->
-<section>
-<h2>Our Vision</h2>
-<p>
-To become one of the most trusted construction material suppliers in the UAE,
-delivering quality, reliability, and long-term partnerships.
-</p>
-</section>
-
-<!-- FAQ -->
-<section>
-<h2>FAQs</h2>
-<div class="cards">
-<div class="card">Do you deliver across UAE? <br> Yes, we provide full coverage.</div>
-<div class="card">Do you handle bulk orders? <br> Yes, we specialize in large projects.</div>
-<div class="card">What materials? <br> Steel, cement, plumbing, electrical & more.</div>
-</div>
-</section>
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c">
+        <div class="project-text">
+          <h3>Residential Projects</h3>
+          <p>Modern housing developments across UAE.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </div>
 
-<!-- OWNER -->
 <div id="owner" class="page">
-<section>
-<h2>Meet the Owner</h2>
+  <section>
+    <h2>Meet the Owner</h2>
 
-<div class="owner-box">
-<img src="https://via.placeholder.com/150">
-<h3>Owner Name</h3>
-<p>
-With years of experience in the UAE construction industry,
-our mission is to provide reliable, high-quality materials with trust and efficiency.
-</p>
+    <div class="owner-box">
+      <img src="https://via.placeholder.com/160">
+      <h3>Owner Name</h3>
+      <p>Write your owner introduction here.</p>
+    </div>
+  </section>
 </div>
 
-</section>
-</div>
+<a class="whatsapp" href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
 
-<a class="whatsapp" href="https://wa.me/971501234567">WhatsApp</a>
+<div id="chatBtn" onclick="toggleChat()">AI Chat</div>
+
+<div id="chatBox">
+  <div id="header">AI Assistant</div>
+  <div id="body"></div>
+  <div id="inputBox">
+    <input id="input" placeholder="Ask something..." />
+    <button id="send" onclick="send()">Send</button>
+  </div>
+</div>
 
 <script>
 function scrollToAbout(){
-document.getElementById("about").scrollIntoView({behavior:"smooth"});
+  document.getElementById("about").scrollIntoView({behavior:"smooth"});
 }
 
 function showHome(){
-document.getElementById("owner").classList.remove("active");
-document.getElementById("home").classList.add("active");
+  document.getElementById("owner").classList.remove("active");
+  document.getElementById("home").classList.add("active");
 }
 
 function showOwner(){
-document.getElementById("home").classList.remove("active");
-document.getElementById("owner").classList.add("active");
+  document.getElementById("home").classList.remove("active");
+  document.getElementById("owner").classList.add("active");
+}
+
+function toggleChat(){
+  let box=document.getElementById("chatBox");
+  box.style.display = box.style.display==="block" ? "none" : "block";
+}
+
+function send(){
+  let input=document.getElementById("input");
+  let text=input.value.trim();
+  if(!text) return;
+
+  let div=document.createElement("div");
+  div.className="msg user";
+  div.innerText=text;
+  document.getElementById("body").appendChild(div);
+
+  input.value="";
+
+  setTimeout(()=>{
+    let bot=document.createElement("div");
+    bot.className="msg bot";
+    bot.innerText="We will contact you shortly 📞";
+    document.getElementById("body").appendChild(bot);
+  },600);
 }
 </script>
 
