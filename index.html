@@ -15,11 +15,6 @@
   font-family:Inter, sans-serif;
 }
 
-html, body{
-  height:100%;
-  scroll-behavior:smooth;
-}
-
 body{
   background:#0b0f14;
   color:#fff;
@@ -31,13 +26,12 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  padding:16px 60px;
+  padding:16px 50px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   background:rgba(10,15,20,0.85);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,0.06);
   z-index:1000;
 }
 
@@ -109,8 +103,8 @@ nav{
   font-weight:700;
   border-radius:10px;
   text-decoration:none;
-  transition:0.3s;
   cursor:pointer;
+  transition:0.3s;
 }
 
 .btn:hover{
@@ -129,7 +123,7 @@ h2{
   margin-bottom:18px;
 }
 
-/* ABOUT TEXT */
+/* ABOUT */
 .about{
   max-width:900px;
   margin:auto;
@@ -244,7 +238,7 @@ h2{
 <!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="logo.png">
+    <img src="logo.png" alt="logo">
     <h2>ROYAL SITE TRADING</h2>
   </div>
 </nav>
@@ -255,21 +249,21 @@ h2{
     <h1>Building UAE’s Future <br><span>With Strength & Trust</span></h1>
 
     <!-- FIXED BUTTON -->
-    <a class="btn" onclick="goAbout()">Discover More</a>
+    <a class="btn" onclick="scrollToAbout()">Discover More</a>
   </div>
 </div>
 
-<!-- ABOUT (IMPORTANT ID FIXED) -->
+<!-- ABOUT -->
 <section id="about">
   <h2>About Our Company</h2>
 
   <div class="about">
     Royal Site Trading is a trusted construction materials supplier based in Abu Dhabi, UAE.
-    We provide steel, cement, plumbing, electrical, and hardware materials for major UAE projects.
+    We provide high-quality steel, cement, plumbing, electrical, and hardware materials for major UAE projects.
 
     <br><br>
 
-    We ensure fast delivery, reliable quality, and strong long-term partnerships with contractors and developers.
+    We focus on fast delivery, reliable supply, and long-term partnerships with contractors and developers across the UAE.
   </div>
 </section>
 
@@ -292,7 +286,7 @@ h2{
   <p>📞 +971501234567</p>
 </section>
 
-<!-- WHATSAPP (100% WORKING) -->
+<!-- WHATSAPP -->
 <a class="whatsapp"
    href="https://wa.me/971501234567"
    target="_blank">
@@ -313,10 +307,11 @@ h2{
 
 <script>
 
-/* FORCE RELIABLE SCROLL (FIXED DISCOVER BUTTON) */
-function goAbout(){
+/* FIXED DISCOVER BUTTON */
+function scrollToAbout(){
   document.getElementById("about").scrollIntoView({
-    behavior:"smooth"
+    behavior:"smooth",
+    block:"start"
   });
 }
 
