@@ -265,7 +265,57 @@ projects across the UAE.
 <p>Modern housing developments.</p>
 </div>
 </div>
+<!-- 🔥 REQUEST A QUOTE FORM -->
+<section id="contact">
+<h2>Request a Quote</h2>
 
+<p style="max-width:800px;margin:auto;margin-bottom:30px;">
+Fill out the form below and our team will contact you within 24 hours to discuss your project requirements.
+</p>
+
+<div style="max-width:700px;margin:auto;background:rgba(255,255,255,0.05);padding:30px;border-radius:16px;border:1px solid rgba(212,175,55,0.2);">
+
+<form onsubmit="submitForm(event)" style="display:flex;flex-direction:column;gap:15px;">
+
+<input type="text" id="name" placeholder="Your Name" required
+style="padding:12px;border-radius:10px;border:none;background:#111;color:white;">
+
+<input type="text" id="phone" placeholder="Phone / WhatsApp Number" required
+style="padding:12px;border-radius:10px;border:none;background:#111;color:white;">
+
+<select id="project"
+style="padding:12px;border-radius:10px;border:none;background:#111;color:white;">
+<option>Construction Materials</option>
+<option>Steel Supply</option>
+<option>Infrastructure Project</option>
+<option>Residential Project</option>
+<option>Custom Requirement</option>
+</select>
+
+<textarea id="message" rows="4" placeholder="Tell us about your project..."
+style="padding:12px;border-radius:10px;border:none;background:#111;color:white;"></textarea>
+
+<button type="submit"
+style="padding:14px;background:linear-gradient(135deg,#d4af37,#f7d774);border:none;border-radius:12px;font-weight:700;cursor:pointer;">
+Submit Request
+</button>
+
+</form>
+
+</div>
+</section>
+
+<script>
+function submitForm(event){
+event.preventDefault();
+
+let name = document.getElementById("name").value;
+
+alert("Thank you " + name + "! We will contact you soon 📞");
+
+document.querySelector("form").reset();
+}
+</script>
 </div>
 </section>
 
