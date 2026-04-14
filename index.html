@@ -6,72 +6,94 @@
 <title>Royal Site Trading</title>
 
 <style>
-:root {
+:root{
   --bg:#05080c;
   --gold:#d4af37;
   --text:#ffffff;
+  --muted:rgba(255,255,255,0.7);
 }
 
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-  margin:0;
-  font-family:Segoe UI;
-  background:radial-gradient(circle at top,#0d1520,#05080c);
+  font-family:Segoe UI, sans-serif;
+  background:var(--bg);
   color:var(--text);
-  overflow-x:hidden;
 }
 
 /* NAV */
 nav{
+  position:fixed;
+  top:0;
+  width:100%;
   display:flex;
   justify-content:space-between;
-  padding:20px 50px;
-  position:fixed;
-  width:100%;
+  align-items:center;
+  padding:18px 50px;
   background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
+  z-index:1000;
 }
 
-nav img{width:45px;}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+}
 
 nav h2{
   color:var(--gold);
+  font-size:18px;
+  letter-spacing:1px;
 }
 
 /* HERO */
 .hero{
   height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
+  padding:0 20px;
+  background:
+    radial-gradient(circle at top, rgba(212,175,55,0.08), transparent 60%);
+}
+
+.hero-content{
+  max-width:800px;
 }
 
 .hero h1{
-  font-size:60px;
-  animation:fadeUp 1s ease;
+  font-size:clamp(36px,5vw,64px);
+  line-height:1.1;
 }
 
 .hero span{
   color:var(--gold);
-  text-shadow:0 0 25px rgba(212,175,55,0.6);
 }
 
 .hero p{
-  margin-top:20px;
-  opacity:0.8;
+  margin-top:15px;
+  color:var(--muted);
+  font-size:18px;
 }
 
 /* BUTTON */
 .btn{
   margin-top:25px;
-  padding:14px 25px;
+  display:inline-block;
+  padding:14px 30px;
   background:linear-gradient(45deg,#d4af37,#f7d774);
-  color:black;
-  border-radius:10px;
-  text-decoration:none;
+  color:#000;
   font-weight:bold;
-  box-shadow:0 0 20px rgba(212,175,55,0.5);
+  border-radius:12px;
+  text-decoration:none;
   transition:0.3s;
 }
 
@@ -79,32 +101,41 @@ nav h2{
   transform:scale(1.05);
 }
 
-/* SECTION */
-.section{
-  padding:80px 20px;
-  text-align:center;
+/* SECTIONS */
+section{
+  padding:90px 10%;
 }
 
-/* CARDS */
+.title{
+  font-size:28px;
+  color:var(--gold);
+  margin-bottom:30px;
+}
+
+/* GRID CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
 .card{
-  display:inline-block;
-  width:250px;
-  margin:15px;
   padding:25px;
-  background:rgba(255,255,255,0.05);
-  border-radius:15px;
-  transition:0.4s;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(212,175,55,0.12);
+  border-radius:14px;
+  transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-10px) scale(1.05);
-  box-shadow:0 0 30px rgba(212,175,55,0.4);
+  transform:translateY(-8px);
+  border-color:rgba(212,175,55,0.4);
 }
 
-/* ANIMATION */
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
+/* CONTACT */
+.contact{
+  text-align:center;
+  color:var(--muted);
 }
 
 /* WHATSAPP */
@@ -113,10 +144,10 @@ nav h2{
   bottom:20px;
   right:20px;
   background:#25D366;
-  color:white;
-  padding:15px;
+  padding:14px 18px;
   border-radius:50px;
   text-decoration:none;
+  color:#fff;
   font-weight:bold;
 }
 </style>
@@ -124,51 +155,47 @@ nav h2{
 
 <body>
 
-<!-- NAV -->
 <nav>
-  <div style="display:flex;align-items:center;gap:10px;">
+  <div class="brand">
     <img src="logo.png">
     <h2>Royal Site Trading</h2>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <img src="logo.png" style="width:120px;margin-bottom:20px;">
-  <h1>Luxury Construction Supply <br><span>Built on Trust & Excellence</span></h1>
-  <p>Premium materials • Fast delivery • Trusted service across UAE</p>
-  <a class="btn" href="#">Explore Now</a>
+  <div class="hero-content">
+    <h1>Premium Construction Supply <br><span>Built for UAE Mega Projects</span></h1>
+    <p>Delivering high-quality construction materials with speed, trust, and excellence across Abu Dhabi.</p>
+    <a class="btn" href="#services">Explore Services</a>
+  </div>
 </div>
 
-<!-- SERVICES -->
-<div class="section">
-  <h2 style="color:gold;">Our Services</h2>
+<section id="services">
+  <h2 class="title">Our Services</h2>
+  <div class="grid">
+    <div class="card">🏗 Construction Materials Supply</div>
+    <div class="card">🛠 Hardware Tools Distribution</div>
+    <div class="card">🚚 Fast UAE Delivery Network</div>
+    <div class="card">📦 Bulk Project Supply</div>
+  </div>
+</section>
 
-  <div class="card">🏗 Construction Materials</div>
-  <div class="card">🛠 Hardware Tools</div>
-  <div class="card">🚚 Fast Delivery</div>
+<section>
+  <h2 class="title">Products</h2>
+  <div class="grid">
+    <div class="card">🧱 Cement & Blocks</div>
+    <div class="card">🔩 Steel & Iron</div>
+    <div class="card">⚡ Electrical Items</div>
+    <div class="card">🚿 Plumbing Materials</div>
+  </div>
+</section>
 
-</div>
-
-<!-- PRODUCTS -->
-<div class="section">
-  <h2 style="color:gold;">Products</h2>
-
-  <div class="card">🧱 Cement & Blocks</div>
-  <div class="card">🔩 Steel & Iron</div>
-  <div class="card">💡 Electrical</div>
-  <div class="card">🚿 Plumbing</div>
-
-</div>
-
-<!-- CONTACT -->
-<div class="section">
-  <h2 style="color:gold;">Contact</h2>
+<section class="contact">
+  <h2 class="title">Contact</h2>
   <p>📍 Abu Dhabi, UAE</p>
-  <p>📞 +97152979982</p>
-</div>
+  <p>📞 +971XXXXXXXXX</p>
+</section>
 
-<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/971XXXXXXXXX">WhatsApp</a>
 
 </body>
