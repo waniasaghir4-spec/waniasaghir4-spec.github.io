@@ -3,21 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlas Engineering Trading</title>
+<title>Royal Site Trading</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Inter, sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter;}
 
 body{
   background:#05070d;
-  color:#fff;
+  color:white;
 }
 
 /* NAV */
@@ -25,19 +20,31 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  padding:16px 50px;
+  padding:15px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(5,7,13,0.7);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(0,255,255,0.1);
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  z-index:1000;
 }
 
-nav h2{
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo img{
+  width:45px;
+  height:45px;
+  border-radius:6px;
+}
+
+.logo h2{
   color:#00e5ff;
-  letter-spacing:2px;
   font-size:16px;
+  letter-spacing:2px;
 }
 
 /* HERO */
@@ -47,18 +54,15 @@ nav h2{
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:radial-gradient(circle at top, #0b1b2b, #05070d);
+  background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   position:relative;
 }
 
-.hero::before{
+.hero::after{
   content:'';
   position:absolute;
-  width:500px;
-  height:500px;
-  background:#00e5ff;
-  filter:blur(200px);
-  opacity:0.15;
+  inset:0;
+  background:rgba(0,0,0,0.65);
 }
 
 .hero-content{
@@ -67,21 +71,15 @@ nav h2{
 }
 
 .hero h1{
-  font-size:58px;
-  font-weight:800;
+  font-size:56px;
 }
 
 .hero span{
   color:#00e5ff;
 }
 
-.hero p{
-  margin-top:18px;
-  opacity:0.75;
-}
-
 .btn{
-  margin-top:25px;
+  margin-top:20px;
   display:inline-block;
   padding:14px 30px;
   background:#00e5ff;
@@ -89,22 +87,16 @@ nav h2{
   font-weight:700;
   border-radius:10px;
   cursor:pointer;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
 }
 
 /* SECTIONS */
 section{
-  padding:110px 10%;
+  padding:100px 10%;
   text-align:center;
 }
 
 h2{
   color:#00e5ff;
-  font-size:32px;
   margin-bottom:20px;
 }
 
@@ -112,23 +104,17 @@ h2{
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px;
+  gap:15px;
 }
 
 .card{
-  padding:22px;
+  padding:20px;
   background:rgba(255,255,255,0.04);
-  border:1px solid rgba(0,229,255,0.15);
-  border-radius:14px;
-  transition:0.3s;
+  border:1px solid rgba(0,229,255,0.2);
+  border-radius:12px;
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  border-color:#00e5ff;
-}
-
-/* IMAGES */
+/* IMAGES FIXED */
 .images{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -140,12 +126,6 @@ h2{
   height:200px;
   object-fit:cover;
   border-radius:12px;
-  border:1px solid rgba(0,229,255,0.2);
-}
-
-/* OWNER */
-.owner{
-  background:#070c14;
 }
 
 /* WHATSAPP */
@@ -195,6 +175,7 @@ h2{
 #inputBox{display:flex;border-top:1px solid #222;}
 #input{flex:1;padding:10px;background:#111;color:white;border:none;}
 #send{background:#00e5ff;border:none;padding:10px;cursor:pointer;}
+
 </style>
 </head>
 
@@ -202,46 +183,43 @@ h2{
 
 <!-- NAV -->
 <nav>
-  <h2>ATLAS ENGINEERING</h2>
+  <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png">
+    <h2>ROYAL SITE TRADING</h2>
+  </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-content">
-    <h1>Engineering UAE Future <br><span>With Precision</span></h1>
-    <p>Premium construction materials supplier in UAE</p>
-    <div class="btn" onclick="goAbout()">Discover More</div>
+    <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
+    <div class="btn" onclick="scrollDown()">Discover More</div>
   </div>
 </div>
 
 <!-- ABOUT -->
 <section id="about">
   <h2>About Us</h2>
-  <p>We supply steel, cement, electrical & industrial materials across UAE mega projects.</p>
+  <p>We supply steel, cement, plumbing, electrical & hardware across UAE.</p>
 
   <div class="cards">
-    <div class="card">Fast Delivery</div>
-    <div class="card">Trusted Supplier</div>
+    <div class="card">500+ Projects</div>
     <div class="card">10+ Years Experience</div>
-    <div class="card">UAE Projects</div>
+    <div class="card">Trusted Supplier</div>
+    <div class="card">Fast Delivery</div>
   </div>
 </section>
 
-<!-- IMAGES -->
+<!-- IMAGES (FIXED LINKS) -->
 <section>
   <h2>Our Work</h2>
-  <div class="images">
-    <img src="https://images.unsplash.com/photo-1581091870627-3b5c7c8a0a9c">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-    <img src="https://images.unsplash.com/photo-1565008576549-6f3b3c7b0c77">
-  </div>
-</section>
 
-<!-- OWNER -->
-<section class="owner">
-  <h2>Owner</h2>
-  <p>Founder with 10+ years UAE construction experience, focused on quality and trust.</p>
+  <div class="images">
+    <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80">
+  </div>
 </section>
 
 <!-- WHATSAPP -->
@@ -261,7 +239,7 @@ h2{
 
 <script>
 
-function goAbout(){
+function scrollDown(){
   document.getElementById("about").scrollIntoView({behavior:"smooth"});
 }
 
@@ -274,7 +252,7 @@ function send(){
   input.value="";
 
   setTimeout(()=>{
-    add("We will contact you shortly 📞","bot");
+    add("We will assist you shortly 📞","bot");
   },600);
 }
 
