@@ -242,20 +242,16 @@ h2{
 <!-- HOME -->
 <div id="homePage">
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-content">
       <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
-
-      <!-- FIXED BUTTON -->
-      <div class="btn" onclick="scrollToAbout()">Discover More</div>
+      <div class="btn" onclick="scrollToProjects()">Discover More</div>
     </div>
   </div>
 
-  <!-- ABOUT (FIXED ID) -->
-  <section id="aboutSection">
+  <section>
     <h2>About Us</h2>
-    <p>Premium supplier of construction materials across UAE mega projects.</p>
+    <p>Premium supplier of construction materials across UAE.</p>
 
     <div class="cards">
       <div class="card">Steel Supply</div>
@@ -267,7 +263,7 @@ h2{
 
 </div>
 
-<!-- OWNER PAGE -->
+<!-- OWNER PAGE (PLACEHOLDER FOR YOU) -->
 <div id="ownerPage">
 
   <section>
@@ -275,13 +271,16 @@ h2{
 
     <div class="owner-box">
 
-      <img src="https://via.placeholder.com/160" alt="Owner">
+      <!-- 🔴 YOU WILL ADD IMAGE HERE -->
+      <img src="https://via.placeholder.com/160" alt="Owner Image">
 
+      <!-- 🔴 YOU WILL EDIT TEXT BELOW -->
       <h3>Owner Name Here</h3>
 
       <p>
-        👉 Add owner introduction here<br><br>
-        Experience, vision, company story, achievements, etc.
+        👉 Write your owner introduction here<br><br>
+        Example: Founder of Royal Site Trading with 10+ years experience in UAE construction industry.<br>
+        Add achievements, vision, story, etc.
       </p>
 
     </div>
@@ -308,14 +307,6 @@ h2{
 
 <script>
 
-/* FIXED SCROLL */
-function scrollToAbout(){
-  document.getElementById("aboutSection").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-/* PAGE SWITCH */
 function showOwner(){
   document.getElementById("homePage").style.display="none";
   document.getElementById("ownerPage").style.display="block";
@@ -326,7 +317,10 @@ function showHome(){
   document.getElementById("ownerPage").style.display="none";
 }
 
-/* CHAT */
+function scrollToProjects(){
+  window.scrollTo({top:500, behavior:"smooth"});
+}
+
 function toggleChat(){
   let box=document.getElementById("chatBox");
   box.style.display = box.style.display==="block" ? "none" : "block";
