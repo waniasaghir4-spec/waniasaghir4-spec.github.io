@@ -3,96 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Site Trading | UAE Premium Construction</title>
+<title>Royal Site Trading</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Montserrat, sans-serif;
+  font-family:Inter, sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-  background:#05070c;
-  color:white;
-  overflow-x:hidden;
+  background:#0b0f14;
+  color:#fff;
 }
 
-/* ================= LOADER ================= */
-#loader{
-  position:fixed;
-  inset:0;
-  background:#05070c;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  z-index:9999;
-}
-
-.loader-text{
-  color:#d4af37;
-  font-size:22px;
-  letter-spacing:4px;
-  animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{opacity:0.4;}
-  50%{opacity:1;}
-}
-
-/* ================= NAV ================= */
+/* NAV */
 nav{
   position:fixed;
   top:0;
   width:100%;
+  padding:18px 60px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:16px 60px;
-  background:rgba(0,0,0,0.35);
-  backdrop-filter:blur(16px);
-  z-index:999;
-  border-bottom:1px solid rgba(212,175,55,0.2);
+  background:rgba(10,15,20,0.8);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  z-index:1000;
 }
 
 .logo{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
 }
 
 .logo img{
-  width:42px;
-  height:42px;
-  border-radius:8px;
+  width:40px;
 }
 
 .logo h2{
-  color:#d4af37;
-  font-size:16px;
+  font-size:14px;
   letter-spacing:2px;
+  color:#d4af37;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  position:relative;
   padding:0 20px;
-  overflow:hidden;
-
-  background:
-    radial-gradient(circle at top, rgba(212,175,55,0.2), transparent 60%),
-    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80')
-    center/cover no-repeat;
+  background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  position:relative;
 }
 
 .hero::after{
@@ -102,79 +74,51 @@ nav{
   background:rgba(0,0,0,0.65);
 }
 
-/* GOLD LIGHT SWEEP */
-.hero::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:60%;
-  height:100%;
-  background:linear-gradient(120deg, transparent, rgba(212,175,55,0.25), transparent);
-  transform:skewX(-20deg);
-  animation:shine 6s infinite;
-}
-
-@keyframes shine{
-  0%{left:-120%;}
-  50%{left:120%;}
-  100%{left:120%;}
-}
-
 .hero-content{
   position:relative;
-  max-width:900px;
-  animation:fadeUp 1.5s ease;
+  max-width:800px;
 }
 
 .hero h1{
-  font-size:62px;
-  font-weight:800;
-  line-height:1.1;
+  font-size:54px;
+  font-weight:700;
+  line-height:1.2;
 }
 
 .hero span{
   color:#d4af37;
-  text-shadow:0 0 20px rgba(212,175,55,0.4);
 }
 
 .hero p{
-  margin-top:18px;
-  opacity:0.85;
-  font-size:18px;
+  margin-top:15px;
+  opacity:0.8;
+  font-size:16px;
   line-height:1.6;
 }
 
-/* BUTTON */
 .btn{
-  margin-top:30px;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:15px 34px;
-  background:linear-gradient(45deg,#d4af37,#ffe08a);
-  color:black;
-  font-weight:800;
-  border-radius:14px;
+  margin-top:25px;
+  display:inline-block;
+  padding:14px 30px;
+  background:#d4af37;
+  color:#000;
+  font-weight:600;
+  border-radius:8px;
   text-decoration:none;
   transition:0.3s;
-  position:relative;
-  overflow:hidden;
 }
 
 .btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 25px rgba(212,175,55,0.3);
+  transform:translateY(-3px);
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section{
-  padding:110px 10%;
+  padding:90px 10%;
   text-align:center;
   opacity:0;
-  transform:translateY(60px);
-  transition:1s cubic-bezier(.2,.8,.2,1);
-  scroll-margin-top:90px;
+  transform:translateY(30px);
+  transition:0.8s ease;
 }
 
 section.show{
@@ -183,78 +127,124 @@ section.show{
 }
 
 h2{
-  font-size:36px;
+  font-size:30px;
+  margin-bottom:15px;
   color:#d4af37;
-  margin-bottom:18px;
 }
 
-/* ================= CARDS ================= */
+/* CARDS */
 .cards{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:18px;
+  margin-top:30px;
 }
 
 .card{
-  width:270px;
-  padding:25px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(212,175,55,0.15);
-  border-radius:14px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:22px;
+  border-radius:10px;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-12px) scale(1.03);
+  transform:translateY(-5px);
   border-color:#d4af37;
-  box-shadow:0 0 35px rgba(212,175,55,0.2);
 }
 
-/* ================= PARTICLES ================= */
-.particle{
-  position:fixed;
-  width:6px;
-  height:6px;
-  background:#d4af37;
-  border-radius:50%;
-  opacity:0.6;
-  animation:float 6s linear infinite;
+/* CONTACT */
+.contact{
+  background:#0a0f16;
+  border-top:1px solid rgba(255,255,255,0.08);
 }
 
-@keyframes float{
-  0%{transform:translateY(100vh);}
-  100%{transform:translateY(-10vh);}
-}
-
-/* ================= WHATSAPP ================= */
+/* WHATSAPP */
 .whatsapp{
   position:fixed;
-  bottom:22px;
-  right:22px;
+  bottom:20px;
+  right:20px;
   background:#25D366;
   padding:14px 18px;
   border-radius:50px;
   color:white;
   text-decoration:none;
-  font-weight:700;
+  font-weight:600;
   z-index:999;
 }
 
-/* ================= ANIMATIONS ================= */
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
+/* ================= AI CHAT BOX ================= */
+#aiChat{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  width:300px;
+  background:#0b0f14;
+  border:1px solid rgba(212,175,55,0.3);
+  border-radius:12px;
+  overflow:hidden;
+  font-size:14px;
+  z-index:9999;
+}
+
+#chatHeader{
+  background:#d4af37;
+  color:#000;
+  padding:10px;
+  font-weight:700;
+}
+
+#chatBody{
+  height:220px;
+  overflow-y:auto;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.msg{
+  padding:8px 10px;
+  border-radius:8px;
+  max-width:85%;
+}
+
+.user{
+  background:#1f2a36;
+  align-self:flex-end;
+}
+
+.bot{
+  background:rgba(212,175,55,0.15);
+  border:1px solid rgba(212,175,55,0.3);
+  align-self:flex-start;
+}
+
+#chatInputArea{
+  display:flex;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+
+#userInput{
+  flex:1;
+  padding:10px;
+  border:none;
+  outline:none;
+  background:#111;
+  color:white;
+}
+
+#sendBtn{
+  background:#d4af37;
+  border:none;
+  padding:10px 14px;
+  cursor:pointer;
+  font-weight:700;
 }
 </style>
 </head>
 
 <body>
-
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-text">ROYAL SITE TRADING</div>
-</div>
 
 <!-- NAV -->
 <nav>
@@ -265,47 +255,57 @@ h2{
 </nav>
 
 <!-- HERO -->
-<div class="hero" id="hero">
+<div class="hero">
   <div class="hero-content">
-    <h1>Building UAE’s Future <br><span>With Power & Precision</span></h1>
-    <p>Premium construction materials supplier powering Abu Dhabi’s largest infrastructure projects.</p>
-    <a class="btn" href="#about">Explore Excellence ↓</a>
+    <h1>Building UAE’s Future <br><span>With Strength & Trust</span></h1>
+    <p>Premium supplier of construction materials across Abu Dhabi.</p>
+    <a class="btn" href="#about">Discover More</a>
   </div>
 </div>
 
+<!-- ABOUT -->
 <section id="about">
-  <h2>ABOUT US</h2>
-  <p>We deliver trusted construction materials across UAE mega projects.</p>
+  <h2>About Us</h2>
+  <p>We supply high-quality construction materials across UAE projects.</p>
 </section>
 
+<!-- SERVICES -->
 <section>
-  <h2>SERVICES</h2>
+  <h2>Services</h2>
   <div class="cards">
-    <div class="card">Construction Supply</div>
-    <div class="card">Steel Materials</div>
-    <div class="card">Fast UAE Delivery</div>
+    <div class="card">Construction Materials</div>
+    <div class="card">Steel Supply</div>
+    <div class="card">UAE Delivery</div>
     <div class="card">Bulk Orders</div>
   </div>
 </section>
 
-<section>
-  <h2>CONTACT</h2>
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact</h2>
   <p>📍 Abu Dhabi, UAE</p>
   <p>📞 +971XXXXXXXXX</p>
 </section>
 
+<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/971XXXXXXXXX">WhatsApp</a>
 
+<!-- ================= AI CHAT BOX ================= -->
+<div id="aiChat">
+  <div id="chatHeader">💬 Royal Site AI Assistant</div>
+
+  <div id="chatBody"></div>
+
+  <div id="chatInputArea">
+    <input id="userInput" type="text" placeholder="Ask about pricing, delivery..." />
+    <button id="sendBtn" onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<!-- SCRIPT -->
 <script>
 
-/* LOADER REMOVE */
-window.addEventListener("load", ()=>{
-  setTimeout(()=>{
-    document.getElementById("loader").style.display="none";
-  },1200);
-});
-
-/* SCROLL REVEAL */
+// SCROLL ANIMATION
 const sections = document.querySelectorAll("section");
 
 const observer = new IntersectionObserver(entries=>{
@@ -318,20 +318,41 @@ const observer = new IntersectionObserver(entries=>{
 
 sections.forEach(sec=>observer.observe(sec));
 
-/* STRONG PARALLAX */
-window.addEventListener("scroll", ()=>{
-  const hero = document.getElementById("hero");
-  let offset = window.pageYOffset;
-  hero.style.backgroundPosition = `center ${offset * 0.5}px`;
-});
 
-/* PARTICLES */
-for(let i=0;i<35;i++){
-  let p = document.createElement("div");
-  p.className = "particle";
-  p.style.left = Math.random()*100 + "vw";
-  p.style.animationDuration = (4+Math.random()*6)+"s";
-  document.body.appendChild(p);
+// AI CHAT FUNCTION
+function sendMessage(){
+  const input = document.getElementById("userInput");
+  const text = input.value.trim();
+  if(!text) return;
+
+  addMessage(text,"user");
+  input.value="";
+
+  setTimeout(()=>{
+    addMessage(botReply(text),"bot");
+  },600);
+}
+
+function addMessage(text,type){
+  const chat = document.getElementById("chatBody");
+  const msg = document.createElement("div");
+  msg.className = "msg " + type;
+  msg.innerText = text;
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// SIMPLE BUSINESS AI RESPONSES
+function botReply(msg){
+  msg = msg.toLowerCase();
+
+  if(msg.includes("price")) return "Pricing depends on quantity. Please share your requirement 📦";
+  if(msg.includes("cement")) return "We supply premium cement across UAE 🏗";
+  if(msg.includes("steel")) return "We provide industrial-grade steel 🔩";
+  if(msg.includes("delivery")) return "Fast UAE-wide delivery available 🚚";
+  if(msg.includes("hello") || msg.includes("hi")) return "Hello 👋 How can we help you today?";
+
+  return "Thanks! Our team will contact you shortly 📞";
 }
 
 </script>
