@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Site Trading | UAE Construction Supply</title>
+<title>Royal Site Trading | UAE Construction Materials</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
 
@@ -47,6 +47,7 @@ nav{
 
 .logo img{
   width:40px;
+  height:40px;
 }
 
 .logo h2{
@@ -71,7 +72,7 @@ nav{
   content:'';
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.65);
 }
 
 .hero-content{
@@ -80,7 +81,7 @@ nav{
 }
 
 .hero h1{
-  font-size:58px;
+  font-size:56px;
   font-weight:800;
   line-height:1.1;
 }
@@ -91,14 +92,14 @@ nav{
 
 .hero p{
   margin-top:18px;
-  font-size:17px;
+  font-size:16px;
   opacity:0.85;
   line-height:1.6;
 }
 
 /* BUTTON */
 .btn{
-  margin-top:28px;
+  margin-top:25px;
   display:inline-block;
   padding:14px 32px;
   background:#d4af37;
@@ -120,9 +121,17 @@ section{
 }
 
 h2{
-  font-size:34px;
+  font-size:32px;
   color:#d4af37;
   margin-bottom:18px;
+}
+
+/* ABOUT */
+.about{
+  max-width:900px;
+  margin:auto;
+  line-height:1.8;
+  opacity:0.9;
 }
 
 /* CARDS */
@@ -136,39 +145,8 @@ h2{
 .card{
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.08);
-  padding:24px;
+  padding:22px;
   border-radius:12px;
-}
-
-/* ABOUT BOX */
-.about-box{
-  max-width:900px;
-  margin:auto;
-  font-size:16px;
-  line-height:1.8;
-  opacity:0.9;
-}
-
-/* STATS */
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-top:40px;
-}
-
-.stat{
-  padding:20px;
-  width:180px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(212,175,55,0.2);
-  border-radius:12px;
-}
-
-.stat h3{
-  color:#d4af37;
-  font-size:30px;
 }
 
 /* CONTACT */
@@ -260,69 +238,62 @@ h2{
 
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="logo.png">
+    <img src="logo.png" alt="logo">
     <h2>ROYAL SITE TRADING</h2>
   </div>
 </nav>
 
-<!-- HERO (FIXED + STRONG MESSAGE) -->
+<!-- HERO -->
 <div class="hero">
   <div class="hero-content">
-    <h1>Powering UAE Construction <br><span>With Strength, Speed & Trust</span></h1>
-    <p>
-      A leading Abu Dhabi supplier of construction materials including steel, cement, plumbing,
-      electrical systems & industrial hardware for mega infrastructure projects across the UAE.
-    </p>
+    <h1>Building UAE’s Future <br><span>With Strength & Trust</span></h1>
+
+    <!-- FIXED BUTTON -->
     <a class="btn" href="#about">Discover More</a>
   </div>
 </div>
 
-<!-- ABOUT (FIXED CONTENT - MORE INFO) -->
+<!-- ABOUT (IMPORTANT: ID FIXED) -->
 <section id="about">
   <h2>About Our Company</h2>
 
-  <div class="about-box">
+  <div class="about">
     Royal Site Trading is a trusted construction materials supplier based in Abu Dhabi, UAE.
-    We support contractors, developers, and engineering companies by providing high-quality
-    materials for residential, commercial, and mega infrastructure projects.
+    We provide high-quality steel, cement, plumbing, electrical, and hardware materials for
+    residential, commercial, and mega infrastructure projects across the UAE.
 
     <br><br>
 
-    Our mission is simple: deliver reliable materials, on time, every time — helping build
-    the future of the UAE’s skyline.
-  </div>
-
-  <div class="stats">
-    <div class="stat"><h3>500+</h3><p>Projects</p></div>
-    <div class="stat"><h3>10+</h3><p>Years</p></div>
-    <div class="stat"><h3>200+</h3><p>Clients</p></div>
+    We are committed to delivering reliable materials on time, ensuring every project runs smoothly
+    from foundation to completion.
   </div>
 </section>
 
 <!-- SERVICES -->
 <section>
-  <h2>Our Services</h2>
+  <h2>Services</h2>
 
   <div class="cards">
-    <div class="card">🏗 Construction Materials Supply</div>
-    <div class="card">🔩 Steel & Heavy Industrial Supply</div>
-    <div class="card">🚚 Fast UAE-Wide Delivery</div>
-    <div class="card">📦 Bulk Project Orders</div>
+    <div class="card">Construction Materials Supply</div>
+    <div class="card">Steel & Industrial Hardware</div>
+    <div class="card">Fast UAE Delivery</div>
+    <div class="card">Bulk Project Supply</div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact">
   <h2>Contact Us</h2>
-  <p>📍 Abu Dhabi, United Arab Emirates</p>
-  <p>📞 +971XXXXXXXXX</p>
+  <p>📍 Abu Dhabi, UAE</p>
+  <p>📞 +971501234567</p>
 </section>
 
-<!-- WHATSAPP (FIXED WORKING) -->
+<!-- WHATSAPP (FIXED WORKING LINK) -->
 <a class="whatsapp"
-   href="https://wa.me/971XXXXXXXXX"
+   href="https://wa.me/971501234567"
    target="_blank">
    WhatsApp
 </a>
@@ -341,9 +312,10 @@ h2{
 
 <script>
 
+// CHAT FUNCTION
 function send(){
-  let input = document.getElementById("userInput");
-  let text = input.value.trim();
+  let input=document.getElementById("userInput");
+  let text=input.value.trim();
   if(!text) return;
 
   add(text,"user");
@@ -368,11 +340,11 @@ function reply(msg){
 
   if(msg.includes("price")) return "Prices depend on quantity 📦";
   if(msg.includes("cement")) return "We supply premium cement 🏗";
-  if(msg.includes("steel")) return "High-grade steel available 🔩";
-  if(msg.includes("delivery")) return "Fast UAE delivery available 🚚";
+  if(msg.includes("steel")) return "High-quality steel available 🔩";
+  if(msg.includes("delivery")) return "Fast UAE delivery 🚚";
   if(msg.includes("hello")) return "Hello 👋 How can we help?";
 
-  return "Our team will respond shortly 📞";
+  return "Our team will contact you shortly 📞";
 }
 
 </script>
