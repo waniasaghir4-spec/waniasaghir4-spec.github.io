@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Royal Site Trading</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
 body{background:#070b14;color:white;overflow-x:hidden;}
+
 nav{
 position:fixed;top:0;width:100%;
 padding:15px 40px;display:flex;justify-content:space-between;
@@ -15,18 +18,23 @@ align-items:center;background:rgba(10,15,25,0.8);
 backdrop-filter:blur(12px);
 z-index:1000;
 }
+
 .logo{display:flex;align-items:center;gap:10px;}
 .logo img{width:42px;height:42px;border-radius:8px;}
 .logo h2{color:#d4af37;font-size:16px;}
+
 nav a{color:white;margin-left:15px;cursor:pointer;text-decoration:none;}
 nav a:hover{color:#d4af37;}
+
 .page{display:none;padding-top:90px;}
 .active{display:block;}
+
 .hero{
 height:100vh;display:flex;align-items:center;
 justify-content:center;text-align:center;
 position:relative;overflow:hidden;
 }
+
 .hero-bg{
 position:absolute;inset:0;
 background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd") center/cover no-repeat;
@@ -34,17 +42,22 @@ z-index:-2;
 filter:brightness(0.7);
 transform:scale(1.05);
 }
+
 .hero-overlay{
 position:absolute;inset:0;
 background:linear-gradient(to bottom,rgba(0,0,0,0.5),#070b14);
 z-index:-1;
 }
+
 .hero-content{animation:fadeUp 1s ease;}
+
 .hero h1{
 font-size:clamp(30px,5vw,56px);
 line-height:1.2;
 }
+
 .hero span{color:#d4af37;}
+
 .btn{
 margin-top:25px;padding:14px 32px;
 background:linear-gradient(135deg,#d4af37,#f7d774);
@@ -53,10 +66,12 @@ border-radius:12px;cursor:pointer;
 transition:0.3s;
 box-shadow:0 0 15px rgba(212,175,55,0.4);
 }
+
 .btn:hover{
 transform:translateY(-3px);
 box-shadow:0 0 25px rgba(212,175,55,0.8);
 }
+
 section{
 padding:100px 10%;
 text-align:center;
@@ -64,16 +79,19 @@ max-width:1200px;
 margin:auto;
 animation:fadeUp 1s ease;
 }
+
 h2{
 color:#d4af37;
 margin-bottom:20px;
 font-size:28px;
 }
+
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:25px;
 }
+
 .card{
 background:rgba(255,255,255,0.05);
 padding:25px;
@@ -82,53 +100,64 @@ border:1px solid rgba(212,175,55,0.2);
 backdrop-filter:blur(8px);
 transition:0.3s;
 }
+
 .card:hover{
 transform:translateY(-5px) scale(1.02);
 box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
+
 .projects{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
+
 .project{
 border-radius:12px;
 overflow:hidden;
 transition:0.4s;
 }
+
 .project img{
 width:100%;height:200px;object-fit:cover;
 transition:0.4s;
 }
+
 .project:hover img{
 transform:scale(1.1);
 }
+
 .project-text{
 padding:12px;text-align:left;
 }
+
 .owner-box{
 max-width:700px;margin:auto;
 background:rgba(255,255,255,0.05);
 padding:30px;border-radius:16px;
 border:1px solid rgba(212,175,55,0.2);
 }
+
 .whatsapp{
 position:fixed;bottom:20px;right:20px;
 background:#25D366;padding:14px;
 border-radius:50px;color:white;text-decoration:none;
 }
+
 #chatBtn{
 position:fixed;right:20px;bottom:90px;
 background:#d4af37;color:black;
 padding:12px 16px;border-radius:50px;
 font-weight:700;cursor:pointer;
 }
+
 #chatBox{
 position:fixed;right:20px;bottom:150px;
 width:320px;background:#0b0f14;
 border:1px solid #d4af37;border-radius:12px;
 display:none;z-index:9999;
 }
+
 #header{background:#d4af37;color:black;padding:10px;}
 #body{height:220px;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px;}
 .msg{padding:8px;border-radius:8px;}
@@ -137,13 +166,16 @@ display:none;z-index:9999;
 #inputBox{display:flex;}
 #input{flex:1;padding:10px;background:#111;color:white;border:none;}
 #send{background:#d4af37;border:none;padding:10px;cursor:pointer;}
+
 @keyframes fadeUp{
 from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
+
 <body>
+
 <nav>
 <div class="logo">
 <img src="logo.png" alt="Royal Site Trading Logo">
@@ -154,7 +186,9 @@ to{opacity:1;transform:translateY(0);}
 <a onclick="showOwner()">Owner</a>
 </div>
 </nav>
+
 <div id="home" class="page active">
+
 <div class="hero">
 <div class="hero-bg"></div>
 <div class="hero-overlay"></div>
@@ -163,21 +197,26 @@ to{opacity:1;transform:translateY(0);}
 <div class="btn" onclick="scrollToAbout()">Discover More</div>
 </div>
 </div>
+
 <section id="about">
 <h2>About Us</h2>
+
 <p>
 Royal Site Trading is a trusted supplier of construction materials across the UAE, 
 delivering unmatched quality, reliability, and efficiency to every project we serve. 
 From large-scale infrastructure to residential developments, we are committed to 
 supporting the region’s growth with premium materials and dependable service.
 </p>
+
 <br>
+
 <p>
 With a strong network of suppliers and years of industry experience, we ensure 
 every client receives durable, high-quality products delivered on time. Our focus 
 on excellence, customer satisfaction, and long-term partnerships sets us apart 
 in the competitive construction market.
 </p>
+
 <div class="cards">
 <div class="card">🏗 High-Quality Construction Materials</div>
 <div class="card">🔩 Premium Steel & Hardware Solutions</div>
@@ -189,41 +228,50 @@ in the competitive construction market.
 <div class="card">💼 Professional & Experienced Team</div>
 </div>
 </section>
+
 <section>
 <h2>Our Projects</h2>
+
 <p style="max-width:800px;margin:auto;margin-bottom:30px;">
 We have proudly contributed to a wide range of construction and infrastructure 
 projects across the UAE.
 </p>
+
 <div class="projects">
+
 <div class="project">
-<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" alt="High-rise building project">
+<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
 <div class="project-text">
 <h3>High-Rise Buildings</h3>
 <p>Supplying materials for skyscrapers.</p>
 </div>
 </div>
+
 <div class="project">
-<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d" alt="Infrastructure project">
+<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
 <div class="project-text">
 <h3>Infrastructure Development</h3>
 <p>Roads, highways and bridges.</p>
 </div>
 </div>
+
 <div class="project">
-<img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c" alt="Residential buildings">
+<img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c">
 <div class="project-text">
 <h3>Residential Communities</h3>
 <p>Modern housing developments.</p>
 </div>
 </div>
-<!-- 🔥 REQUEST A QUOTE FORM -->
-<!-- 🔥 REQUEST A QUOTE FORM (UPGRADED ONLY) -->
+
+</div>
+</section>
+
+<!-- 🔥 REQUEST A QUOTE FORM (FIXED) -->
 <section id="contact">
 <h2>Request a Quote</h2>
 
 <p style="max-width:800px;margin:auto;margin-bottom:30px;opacity:0.85;">
-Tell us your project requirements and our team will respond with pricing, availability, and delivery details within 24 hours.
+Tell us your project requirements and our team will respond within 24 hours.
 </p>
 
 <div style="max-width:850px;margin:auto;
@@ -238,23 +286,18 @@ style="display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:15px;">
 
-<!-- Name -->
 <input type="text" id="name" placeholder="Full Name *" required
 style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
 
-<!-- Phone -->
 <input type="text" id="phone" placeholder="Phone / WhatsApp *" required
 style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
 
-<!-- Email -->
 <input type="email" id="email" placeholder="Email Address"
 style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
 
-<!-- Company -->
 <input type="text" id="company" placeholder="Company Name"
 style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
 
-<!-- Project Type -->
 <select id="project"
 style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
 <option>Construction Materials</option>
@@ -264,7 +307,6 @@ style="padding:14px;border-radius:10px;border:none;background:#111;color:white;"
 <option>Custom Requirement</option>
 </select>
 
-<!-- Timeline -->
 <select id="timeline"
 style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
 <option>Urgent (1-3 Days)</option>
@@ -273,21 +315,18 @@ style="padding:14px;border-radius:10px;border:none;background:#111;color:white;"
 <option>Flexible Timeline</option>
 </select>
 
-<!-- Message -->
 <textarea id="message" rows="5"
 placeholder="Describe your project requirements..."
 style="grid-column:1/-1;
 padding:14px;border-radius:10px;border:none;background:#111;color:white;resize:none;"></textarea>
 
-<!-- Button -->
 <button type="submit"
 style="grid-column:1/-1;
 padding:15px;
 background:linear-gradient(135deg,#d4af37,#f7d774);
 border:none;border-radius:12px;
 font-weight:700;
-cursor:pointer;
-transition:0.3s;">
+cursor:pointer;">
 🚀 Submit Request
 </button>
 
@@ -295,10 +334,9 @@ transition:0.3s;">
 
 </div>
 </section>
-</script>
+
 </div>
-</section>
-</div>
+
 <div id="owner" class="page">
 <section>
 <h2>Meet the Owner</h2>
@@ -309,9 +347,11 @@ transition:0.3s;">
 </div>
 </section>
 </div>
-<!-- ✅ FIXED -->
+
 <a class="whatsapp" href="https://wa.me/0522979982" target="_blank">WhatsApp</a>
+
 <div id="chatBtn" onclick="toggleChat()">AI Chat</div>
+
 <div id="chatBox">
 <div id="header">AI Assistant</div>
 <div id="body"></div>
@@ -320,31 +360,39 @@ transition:0.3s;">
 <button id="send" onclick="send()">Send</button>
 </div>
 </div>
+
 <script>
 function scrollToAbout(){
 document.getElementById("about").scrollIntoView({behavior:"smooth"});
 }
+
 function showHome(){
 document.getElementById("owner").classList.remove("active");
 document.getElementById("home").classList.add("active");
 }
+
 function showOwner(){
 document.getElementById("home").classList.remove("active");
 document.getElementById("owner").classList.add("active");
 }
+
 function toggleChat(){
 let box=document.getElementById("chatBox");
 box.style.display = box.style.display==="block" ? "none" : "block";
 }
+
 function send(){
 let input=document.getElementById("input");
 let text=input.value.trim();
 if(!text) return;
+
 let div=document.createElement("div");
 div.className="msg user";
 div.innerText=text;
 document.getElementById("body").appendChild(div);
+
 input.value="";
+
 setTimeout(()=>{
 let bot=document.createElement("div");
 bot.className="msg bot";
@@ -352,6 +400,14 @@ bot.innerText="We will contact you shortly 📞";
 document.getElementById("body").appendChild(bot);
 },600);
 }
+
+function submitForm(event){
+event.preventDefault();
+let name = document.getElementById("name").value;
+alert("Thanks " + name + "! We will contact you within 24 hours 📞");
+document.querySelector("form").reset();
+}
 </script>
+
 </body>
 </html>
