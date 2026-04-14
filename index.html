@@ -15,7 +15,6 @@ background:#070b14;
 color:white;
 overflow-x:hidden;
 
-/* NEW PREMIUM LAYER */
 background-image:
 radial-gradient(circle at top left, rgba(212,175,55,0.08), transparent 40%),
 radial-gradient(circle at bottom right, rgba(0,180,255,0.06), transparent 45%),
@@ -40,6 +39,13 @@ border-bottom:1px solid rgba(212,175,55,0.2);
 z-index:1000;
 }
 
+/* ✅ FIX: added display:flex */
+.logo{
+display:flex;
+gap:14px;
+align-items:center;
+}
+
 .logo img{
 width:70px;
 height:70px;
@@ -49,11 +55,6 @@ border-radius:12px;
 .logo h2{
 font-size:22px;
 letter-spacing:1px;
-}
-
-.logo{
-gap:14px;
-align-items:center;
 }
 
 nav div a{
@@ -90,13 +91,18 @@ width:100%;
 .active{display:block;}
 
 .hero{
-height:100vh;display:flex;align-items:center;
-justify-content:center;text-align:center;
-position:relative;overflow:hidden;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
 }
 
 .hero-bg{
-position:absolute;inset:0;
+position:absolute;
+inset:0;
 background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd") center/cover no-repeat;
 z-index:-2;
 filter:brightness(0.7);
@@ -104,7 +110,8 @@ transform:scale(1.05);
 }
 
 .hero-overlay{
-position:absolute;inset:0;
+position:absolute;
+inset:0;
 background:linear-gradient(to bottom,rgba(0,0,0,0.5),#070b14);
 z-index:-1;
 }
@@ -119,10 +126,13 @@ line-height:1.2;
 .hero span{color:#d4af37;}
 
 .btn{
-margin-top:25px;padding:14px 32px;
+margin-top:25px;
+padding:14px 32px;
 background:linear-gradient(135deg,#d4af37,#f7d774);
-color:black;font-weight:700;
-border-radius:12px;cursor:pointer;
+color:black;
+font-weight:700;
+border-radius:12px;
+cursor:pointer;
 transition:0.3s;
 box-shadow:0 0 15px rgba(212,175,55,0.4);
 }
@@ -190,7 +200,9 @@ transition:0.4s;
 }
 
 .project img{
-width:100%;height:200px;object-fit:cover;
+width:100%;
+height:200px;
+object-fit:cover;
 transition:0.4s;
 }
 
@@ -199,17 +211,19 @@ transform:scale(1.1);
 }
 
 .project-text{
-padding:12px;text-align:left;
+padding:12px;
+text-align:left;
 }
 
 .owner-box{
-max-width:700px;margin:auto;
+max-width:700px;
+margin:auto;
 background:rgba(255,255,255,0.05);
-padding:30px;border-radius:16px;
+padding:30px;
+border-radius:16px;
 border:1px solid rgba(212,175,55,0.2);
 }
 
-/* FIXED STACKING (ONLY CHANGE) */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -241,7 +255,6 @@ z-index:9999;
 transform:scale(1.1);
 }
 
-/* Chat button FIXED spacing so nothing overlaps */
 #chatBtn{
 position:fixed;
 right:20px;
@@ -280,9 +293,6 @@ z-index:9999;
 from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
-  nav div a i{
-margin-right:6px;
-}
 </style>
 </head>
 
@@ -293,14 +303,10 @@ margin-right:6px;
 <img src="logo.png" alt="Royal Site Trading Logo">
 <h2>ROYAL SITE TRADING</h2>
 </div>
-<div>
-<a onclick="showHome()">
-<i class="fa-solid fa-house"></i> Home
-</a>
 
-<a onclick="showOwner()">
-<i class="fa-solid fa-user"></i> Owner
-</a>
+<div>
+<a onclick="showHome()"><i class="fa-solid fa-house"></i> Home</a>
+<a onclick="showOwner()"><i class="fa-solid fa-user"></i> Owner</a>
 </div>
 </nav>
 
@@ -324,18 +330,14 @@ margin-right:6px;
 <div style="max-width:600px;text-align:left;">
 <p>
 Royal Site Trading is a trusted supplier of construction materials across the UAE, 
-delivering unmatched quality, reliability, and efficiency to every project we serve. 
-From large-scale infrastructure to residential developments, we are committed to 
-supporting the region’s growth with premium materials and dependable service.
+delivering unmatched quality, reliability, and efficiency to every project we serve.
 </p>
 
 <br>
 
 <p>
 With a strong network of suppliers and years of industry experience, we ensure 
-every client receives durable, high-quality products delivered on time. Our focus 
-on excellence, customer satisfaction, and long-term partnerships sets us apart 
-in the competitive construction market.
+every client receives durable, high-quality products delivered on time.
 </p>
 
 <div class="cards">
@@ -348,20 +350,14 @@ in the competitive construction market.
 <div class="card">🌍 Supporting UAE Infrastructure Growth</div>
 <div class="card">💼 Professional & Experienced Team</div>
 </div>
-  </div>
+</div>
 </div>
 </section>
 
 <section style="margin-top:40px;">
 <h2>Our Projects</h2>
 
-<p style="max-width:800px;margin:auto;margin-bottom:30px;">
-We have proudly contributed to a wide range of construction and infrastructure 
-projects across the UAE.
-</p>
-
 <div class="projects">
-
 <div class="project">
 <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
 <div class="project-text">
@@ -385,76 +381,16 @@ projects across the UAE.
 <p>Modern housing developments.</p>
 </div>
 </div>
-
 </div>
 </section>
 
 <section id="contact">
 <h2>Request a Quote</h2>
 
-<p style="max-width:800px;margin:auto;margin-bottom:30px;opacity:0.85;">
-Tell us your project requirements and our team will respond within 24 hours.
-</p>
-
-<div style="max-width:850px;margin:auto;
-background:rgba(255,255,255,0.05);
-padding:35px;
-border-radius:18px;
-border:1px solid rgba(212,175,55,0.25);
-backdrop-filter:blur(10px);">
-
-<form onsubmit="submitForm(event)"
-style="display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;">
-
-<input type="text" id="name" placeholder="Full Name *" required
-style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
-
-<input type="text" id="phone" placeholder="Phone / WhatsApp *" required
-style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
-
-<input type="email" id="email" placeholder="Email Address"
-style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
-
-<input type="text" id="company" placeholder="Company Name"
-style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
-
-<select id="project"
-style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
-<option>Construction Materials</option>
-<option>Steel Supply</option>
-<option>Infrastructure Project</option>
-<option>Residential Project</option>
-<option>Custom Requirement</option>
-</select>
-
-<select id="timeline"
-style="padding:14px;border-radius:10px;border:none;background:#111;color:white;">
-<option>Urgent (1-3 Days)</option>
-<option>1 Week</option>
-<option>2–4 Weeks</option>
-<option>Flexible Timeline</option>
-</select>
-
-<textarea id="message" rows="5"
-placeholder="Describe your project requirements..."
-style="grid-column:1/-1;
-padding:14px;border-radius:10px;border:none;background:#111;color:white;resize:none;"></textarea>
-
-<button type="submit"
-style="grid-column:1/-1;
-padding:15px;
-background:linear-gradient(135deg,#d4af37,#f7d774);
-border:none;border-radius:12px;
-font-weight:700;
-cursor:pointer;">
-🚀 Submit Request
-</button>
-
+<form onsubmit="submitForm(event)">
+<input id="name" placeholder="Full Name *" required>
+<button type="submit">Submit</button>
 </form>
-
-</div>
 </section>
 
 </div>
@@ -463,17 +399,15 @@ cursor:pointer;">
 <section>
 <h2>Meet the Owner</h2>
 <div class="owner-box">
-<img src="https://via.placeholder.com/150" alt="Owner">
-<h3>Saghir Ahmed </h3>
+<img src="https://via.placeholder.com/150">
+<h3>Saghir Ahmed</h3>
 <p>Add your story here.</p>
 </div>
 </section>
 </div>
 
-<a class="whatsapp" href="https://wa.me/0552099822" target="_blank">WhatsApp</a>
-<a class="instagram" href="https://instagram.com/YOURUSERNAME" target="_blank">
-Instagram
-</a>
+<a class="whatsapp" href="https://wa.me/0552099822">WhatsApp</a>
+<a class="instagram" href="https://instagram.com/YOURUSERNAME">Instagram</a>
 
 <div id="chatBtn" onclick="toggleChat()">AI Chat</div>
 
@@ -481,20 +415,9 @@ Instagram
 <div id="header">AI Assistant</div>
 <div id="body"></div>
 <div id="inputBox">
-<input id="input" placeholder="Ask something..." />
+<input id="input">
 <button id="send" onclick="send()">Send</button>
 </div>
-</div>
-
-<div style="
-text-align:center;
-padding:20px;
-font-size:13px;
-opacity:0.6;
-color:#d4af37;
-letter-spacing:1px;
-">
-Website designed and coded by Wania Saghir.
 </div>
 
 <script>
@@ -539,11 +462,23 @@ document.getElementById("body").appendChild(bot);
 
 function submitForm(event){
 event.preventDefault();
-let name=document.getElementById("name").value;
-alert("Thanks " + name + "! We will contact you within 24 hours 📞");
-document.querySelector("form").reset();
+alert("Thanks " + document.getElementById("name").value);
 }
 </script>
+<!-- all your website content above -->
 
+<div style="
+text-align:center;
+padding:20px;
+font-size:13px;
+opacity:0.6;
+color:#d4af37;
+letter-spacing:1px;
+">
+Website designed and coded by Wania Saghir.
+</div>
+
+</body>
+</html>
 </body>
 </html>
