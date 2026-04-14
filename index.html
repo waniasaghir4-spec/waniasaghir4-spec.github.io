@@ -51,7 +51,6 @@ nav{
   font-size:16px;
 }
 
-/* NAV LINKS */
 nav a{
   color:white;
   text-decoration:none;
@@ -75,7 +74,7 @@ nav a:hover{
   display:block;
 }
 
-/* HERO VIDEO */
+/* HERO VIDEO FIX */
 .hero{
   height:100vh;
   display:flex;
@@ -84,19 +83,23 @@ nav a:hover{
   text-align:center;
   position:relative;
   overflow:hidden;
+
+  /* fallback image (VERY IMPORTANT) */
+  background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 }
 
+/* VIDEO */
 .bg-video{
   position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  min-width:100%;
-  min-height:100%;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
   object-fit:cover;
   z-index:-2;
 }
 
+/* OVERLAY */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -139,20 +142,6 @@ h2{
   margin-bottom:20px;
 }
 
-/* CARDS */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:15px;
-}
-
-.card{
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:12px;
-  border:1px solid rgba(212,175,55,0.2);
-}
-
 /* PROJECTS */
 .projects{
   display:grid;
@@ -173,7 +162,6 @@ h2{
   object-fit:cover;
 }
 
-/* TEXT UNDER IMAGE */
 .project-text{
   padding:12px;
   text-align:left;
@@ -182,13 +170,11 @@ h2{
 .project-text h3{
   color:#d4af37;
   font-size:16px;
-  margin-bottom:5px;
 }
 
 .project-text p{
   font-size:13px;
   opacity:0.8;
-  line-height:1.4;
 }
 
 /* OWNER */
@@ -295,8 +281,8 @@ h2{
   <!-- HERO VIDEO -->
   <div class="hero">
 
-    <video autoplay muted loop playsinline class="bg-video">
-   <source src="https://cdn.pixabay.com/video/2022/10/30/137574-765535308_large.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
+      <source src="https://cdn.pixabay.com/video/2022/10/30/137574-765535308_large.mp4" type="video/mp4">
     </video>
 
     <div class="hero-overlay"></div>
@@ -311,50 +297,28 @@ h2{
   <!-- ABOUT -->
   <section id="about">
     <h2>About Us</h2>
-
-    <div class="cards">
-      <div class="card">Steel Supply</div>
-      <div class="card">Cement Supply</div>
-      <div class="card">Fast Delivery</div>
-      <div class="card">Trusted Contractors</div>
-    </div>
+    <p>Premium construction supplier in UAE.</p>
   </section>
 
-  <!-- PROJECTS WITH TEXT -->
+  <!-- PROJECTS -->
   <section>
     <h2>Our Projects</h2>
 
     <div class="projects">
 
       <div class="project">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
         <div class="project-text">
           <h3>High-Rise Buildings</h3>
-          <p>Supplying premium steel and materials for modern skyscraper construction across UAE.</p>
+          <p>Premium steel supply for skyscrapers across UAE.</p>
         </div>
       </div>
 
       <div class="project">
-        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
         <div class="project-text">
           <h3>Road Infrastructure</h3>
-          <p>Supporting large highway and road development projects with durable materials.</p>
-        </div>
-      </div>
-
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80">
-        <div class="project-text">
-          <h3>Residential Complexes</h3>
-          <p>Providing full construction supply for modern housing and communities.</p>
-        </div>
-      </div>
-
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80">
-        <div class="project-text">
-          <h3>Industrial Projects</h3>
-          <p>Heavy-duty materials for factories, warehouses and industrial facilities.</p>
+          <p>Supporting major highway development projects.</p>
         </div>
       </div>
 
@@ -370,17 +334,10 @@ h2{
     <h2>Meet the Owner</h2>
 
     <div class="owner-box">
-
       <img src="https://via.placeholder.com/160">
-
       <h3>Owner Name</h3>
-      <p>
-        Add your owner story here — experience, vision, achievements, etc.
-      </p>
-
+      <p>Write owner introduction here.</p>
     </div>
-
-    <div class="btn" onclick="showHome()">Back to Home</div>
 
   </section>
 
@@ -403,6 +360,15 @@ h2{
 
 <script>
 
+/* FORCE VIDEO PLAY (IMPORTANT FIX) */
+window.addEventListener("load", () => {
+  const video = document.getElementById("bgVideo");
+  if(video){
+    video.play().catch(err => console.log("Autoplay blocked", err));
+  }
+});
+
+/* NAV */
 function showOwner(){
   document.getElementById("home").classList.remove("active");
   document.getElementById("owner").classList.add("active");
@@ -417,6 +383,7 @@ function scrollToAbout(){
   document.getElementById("about").scrollIntoView({behavior:"smooth"});
 }
 
+/* CHAT */
 function toggleChat(){
   let box=document.getElementById("chatBox");
   box.style.display = box.style.display==="block" ? "none" : "block";
