@@ -161,31 +161,48 @@ padding:30px;border-radius:16px;
 border:1px solid rgba(212,175,55,0.2);
 }
 
-.whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;padding:14px;
-border-radius:50px;color:white;text-decoration:none;
-}
-.instagram{
+/* ===== SOCIAL DOCK (ONLY CHANGE) ===== */
+.social-dock{
 position:fixed;
-bottom:90px;
 right:20px;
-background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
-padding:14px 16px;
-border-radius:50px;
-color:white;
-text-decoration:none;
-font-weight:700;
-box-shadow:0 0 15px rgba(238,42,123,0.4);
-transition:0.3s;
-z-index:1000;
+bottom:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:9999;
+}
+
+.social-btn{
+width:52px;
+height:52px;
 display:flex;
 align-items:center;
 justify-content:center;
+border-radius:50%;
+color:white;
+text-decoration:none;
+font-size:22px;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+transition:0.3s;
+animation:pulse 2.5s infinite;
 }
 
-.instagram:hover{
-transform:scale(1.1);
+.whatsapp-btn{
+background:#25D366;
+}
+
+.instagram-btn{
+background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
+}
+
+.social-btn:hover{
+transform:scale(1.15);
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(255,255,255,0.2);}
+70%{box-shadow:0 0 0 12px rgba(255,255,255,0);}
+100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
 }
 
 #chatBtn{
@@ -310,7 +327,6 @@ projects across the UAE.
 </div>
 </section>
 
-<!-- 🔥 REQUEST A QUOTE FORM (FIXED) -->
 <section id="contact">
 <h2>Request a Quote</h2>
 
@@ -392,10 +408,14 @@ cursor:pointer;">
 </section>
 </div>
 
-<a class="whatsapp" href="https://wa.me/0522979982" target="_blank">WhatsApp</a>
-<a class="instagram" href="https://instagram.com/YOURUSERNAME" target="_blank">
-Instagram
-</a>
+<!-- SOCIAL DOCK (REPLACEMENT) -->
+<div class="social-dock">
+
+<a class="social-btn whatsapp-btn" href="https://wa.me/0522979982" target="_blank">🟢</a>
+
+<a class="social-btn instagram-btn" href="https://instagram.com/YOURUSERNAME" target="_blank">📸</a>
+
+</div>
 
 <div id="chatBtn" onclick="toggleChat()">AI Chat</div>
 
@@ -406,8 +426,8 @@ Instagram
 <input id="input" placeholder="Ask something..." />
 <button id="send" onclick="send()">Send</button>
 </div>
-
 </div>
+
 <!-- FOOTER CREDIT -->
 <div style="
 text-align:center;
@@ -419,6 +439,7 @@ letter-spacing:1px;
 ">
 Website designed and coded by Wania Saghir.
 </div>
+
 <script>
 function scrollToAbout(){
 document.getElementById("about").scrollIntoView({behavior:"smooth"});
@@ -466,5 +487,6 @@ alert("Thanks " + name + "! We will contact you within 24 hours 📞");
 document.querySelector("form").reset();
 }
 </script>
+
 </body>
 </html>
