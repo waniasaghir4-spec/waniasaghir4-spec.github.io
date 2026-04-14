@@ -51,23 +51,10 @@ nav{
   font-size:16px;
 }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:15px;
-  cursor:pointer;
-  opacity:0.8;
-}
-
-nav a:hover{
-  color:#d4af37;
-}
-
 /* PAGE SYSTEM */
 .page{
   display:none;
   padding-top:90px;
-  min-height:100vh;
 }
 
 .active{
@@ -84,11 +71,9 @@ nav a:hover{
   position:relative;
   overflow:hidden;
 
-  /* fallback image (VERY IMPORTANT) */
   background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 }
 
-/* VIDEO */
 .bg-video{
   position:absolute;
   top:0;
@@ -99,7 +84,6 @@ nav a:hover{
   z-index:-2;
 }
 
-/* OVERLAY */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -131,7 +115,7 @@ nav a:hover{
   cursor:pointer;
 }
 
-/* SECTIONS */
+/* SECTIONS (UNCHANGED STYLE) */
 section{
   padding:100px 10%;
   text-align:center;
@@ -142,7 +126,21 @@ h2{
   margin-bottom:20px;
 }
 
-/* PROJECTS */
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:12px;
+  border:1px solid rgba(212,175,55,0.2);
+}
+
+/* PROJECTS RESTORED */
 .projects{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -151,9 +149,9 @@ h2{
 
 .project{
   background:rgba(255,255,255,0.04);
-  border:1px solid rgba(212,175,55,0.2);
   border-radius:12px;
   overflow:hidden;
+  border:1px solid rgba(212,175,55,0.2);
 }
 
 .project img{
@@ -175,6 +173,7 @@ h2{
 .project-text p{
   font-size:13px;
   opacity:0.8;
+  line-height:1.4;
 }
 
 /* OWNER */
@@ -230,7 +229,6 @@ h2{
   border:1px solid #d4af37;
   border-radius:12px;
   display:none;
-  z-index:9999;
 }
 
 #header{
@@ -268,11 +266,6 @@ h2{
     <img src="logo.png">
     <h2>ROYAL SITE TRADING</h2>
   </div>
-
-  <div>
-    <a onclick="showHome()">Home</a>
-    <a onclick="showOwner()">Owner</a>
-  </div>
 </nav>
 
 <!-- HOME -->
@@ -282,7 +275,7 @@ h2{
   <div class="hero">
 
     <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
-      <source src="https://cdn.pixabay.com/video/2022/10/30/137574-765535308_large.mp4" type="video/mp4">
+      <source src="https://cdn.pixabay.com/video/2022/10/30/137574-765535308_large.mp4">
     </video>
 
     <div class="hero-overlay"></div>
@@ -294,13 +287,23 @@ h2{
 
   </div>
 
-  <!-- ABOUT -->
+  <!-- ABOUT (RESTORED PROPERLY) -->
   <section id="about">
     <h2>About Us</h2>
-    <p>Premium construction supplier in UAE.</p>
+    <p class="subtext">
+      We are a trusted construction materials supplier providing high-quality steel, cement,
+      electrical, plumbing, and hardware solutions for major UAE developments.
+    </p>
+
+    <div class="cards">
+      <div class="card">🏗 Construction Supply Solutions</div>
+      <div class="card">🔩 Steel & Industrial Materials</div>
+      <div class="card">🚚 UAE Logistics & Delivery</div>
+      <div class="card">📦 Bulk Project Supply</div>
+    </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS (RESTORED FULL VERSION) -->
   <section>
     <h2>Our Projects</h2>
 
@@ -310,7 +313,7 @@ h2{
         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
         <div class="project-text">
           <h3>High-Rise Buildings</h3>
-          <p>Premium steel supply for skyscrapers across UAE.</p>
+          <p>Supplying premium steel and materials for skyscraper projects across UAE.</p>
         </div>
       </div>
 
@@ -318,97 +321,28 @@ h2{
         <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
         <div class="project-text">
           <h3>Road Infrastructure</h3>
-          <p>Supporting major highway development projects.</p>
+          <p>Supporting highway and large-scale transport development projects.</p>
         </div>
       </div>
 
     </div>
-  </section>
-
-</div>
-
-<!-- OWNER -->
-<div id="owner" class="page">
-
-  <section>
-    <h2>Meet the Owner</h2>
-
-    <div class="owner-box">
-      <img src="https://via.placeholder.com/160">
-      <h3>Owner Name</h3>
-      <p>Write owner introduction here.</p>
-    </div>
 
   </section>
 
-</div>
-
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
-
-<!-- CHAT -->
-<div id="chatBtn" onclick="toggleChat()">AI Chat</div>
-
-<div id="chatBox">
-  <div id="header">AI Assistant</div>
-  <div id="body"></div>
-  <div id="inputBox">
-    <input id="input" placeholder="Ask something..." />
-    <button id="send" onclick="send()">Send</button>
-  </div>
 </div>
 
 <script>
-
-/* FORCE VIDEO PLAY (IMPORTANT FIX) */
-window.addEventListener("load", () => {
-  const video = document.getElementById("bgVideo");
-  if(video){
-    video.play().catch(err => console.log("Autoplay blocked", err));
-  }
-});
-
-/* NAV */
-function showOwner(){
-  document.getElementById("home").classList.remove("active");
-  document.getElementById("owner").classList.add("active");
-}
-
-function showHome(){
-  document.getElementById("owner").classList.remove("active");
-  document.getElementById("home").classList.add("active");
-}
-
 function scrollToAbout(){
   document.getElementById("about").scrollIntoView({behavior:"smooth"});
 }
 
-/* CHAT */
-function toggleChat(){
-  let box=document.getElementById("chatBox");
-  box.style.display = box.style.display==="block" ? "none" : "block";
-}
-
-function send(){
-  let input=document.getElementById("input");
-  let text=input.value.trim();
-  if(!text) return;
-
-  add(text,"user");
-  input.value="";
-
-  setTimeout(()=>{
-    add("We will contact you shortly 📞","bot");
-  },600);
-}
-
-function add(t,type){
-  let div=document.createElement("div");
-  div.className="msg "+type;
-  div.innerText=t;
-  document.getElementById("body").appendChild(div);
-}
-
+/* FORCE PLAY VIDEO */
+window.addEventListener("load", () => {
+  const video = document.getElementById("bgVideo");
+  if(video){
+    video.play().catch(()=>{});
+  }
+});
 </script>
 
 </body>
