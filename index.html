@@ -292,19 +292,38 @@ h2{
   <!-- HERO -->
   <div class="hero">
 
-    <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
-      <source src="https://cdn.pixabay.com/video/2022/10/30/137574-765535308_large.mp4" type="video/mp4">
-    </video>
+  <div class="animated-bg"></div>
+  <div class="hero-overlay"></div>
 
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-      <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
-      <div class="btn" onclick="scrollToAbout()">Discover More</div>
-    </div>
-
+  <div class="hero-content">
+    <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
+    <div class="btn" onclick="scrollToAbout()">Discover More</div>
   </div>
 
+</div>
+  /* CINEMATIC BACKGROUND */
+.animated-bg{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(-45deg,#0b0f1a,#111a2e,#0d1b2a,#1b263b);
+  background-size:400% 400%;
+  animation:moveBG 12s ease infinite;
+  z-index:-2;
+}
+
+@keyframes moveBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* OVERLAY */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
+}
   <!-- ABOUT -->
   <section id="about">
     <h2>About Us</h2>
