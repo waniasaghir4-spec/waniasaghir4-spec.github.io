@@ -8,12 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Poppins;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
 
 body{
   background:#070b14;
@@ -34,14 +29,17 @@ nav{
   z-index:1000;
 }
 
+/* LOGO FIXED */
 .logo{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
 }
 
 .logo img{
-  width:40px;
+  width:42px;
+  height:42px;
+  border-radius:8px;
 }
 
 .logo h2{
@@ -57,7 +55,7 @@ nav{
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  background:url('https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   position:relative;
 }
 
@@ -65,7 +63,7 @@ nav{
   content:'';
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.65);
 }
 
 .hero-content{
@@ -83,12 +81,12 @@ nav{
 
 .btn{
   margin-top:20px;
+  display:inline-block;
   padding:14px 30px;
   background:#d4af37;
   color:black;
   font-weight:700;
   border-radius:10px;
-  display:inline-block;
   cursor:pointer;
 }
 
@@ -101,20 +99,6 @@ section{
 h2{
   color:#d4af37;
   margin-bottom:20px;
-}
-
-/* IMAGES */
-.images{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
-
-.images img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:12px;
 }
 
 /* CARDS */
@@ -131,6 +115,49 @@ h2{
   border:1px solid rgba(212,175,55,0.2);
 }
 
+/* PROJECTS UPGRADED */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+
+.project{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(212,175,55,0.2);
+  border-radius:12px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.project:hover{
+  transform:translateY(-6px);
+  border-color:#d4af37;
+}
+
+.project img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.project-content{
+  padding:15px;
+  text-align:left;
+}
+
+.project-content h3{
+  color:#d4af37;
+  margin-bottom:6px;
+  font-size:16px;
+}
+
+.project-content p{
+  font-size:13px;
+  opacity:0.8;
+  line-height:1.4;
+}
+
 /* WHATSAPP */
 .whatsapp{
   position:fixed;
@@ -144,7 +171,7 @@ h2{
   font-weight:700;
 }
 
-/* CHAT BUTTON (floating) */
+/* CHAT BUTTON */
 #chatBtn{
   position:fixed;
   right:20px;
@@ -155,10 +182,9 @@ h2{
   border-radius:50px;
   font-weight:700;
   cursor:pointer;
-  z-index:9999;
 }
 
-/* CHAT BOX (POPUP) */
+/* CHAT BOX */
 #chatBox{
   position:fixed;
   right:20px;
@@ -168,7 +194,6 @@ h2{
   border:1px solid #d4af37;
   border-radius:12px;
   display:none;
-  overflow:hidden;
   z-index:9999;
 }
 
@@ -188,41 +213,14 @@ h2{
   gap:8px;
 }
 
-.msg{
-  padding:8px;
-  border-radius:8px;
-  font-size:14px;
-}
+.msg{padding:8px;border-radius:8px;font-size:14px;}
+.user{background:#1c2433;align-self:flex-end;}
+.bot{background:rgba(212,175,55,0.15);align-self:flex-start;}
 
-.user{
-  background:#1c2433;
-  align-self:flex-end;
-}
+#inputBox{display:flex;border-top:1px solid #222;}
+#input{flex:1;padding:10px;background:#111;color:white;border:none;}
+#send{background:#d4af37;border:none;padding:10px;cursor:pointer;}
 
-.bot{
-  background:rgba(212,175,55,0.15);
-  align-self:flex-start;
-}
-
-#inputBox{
-  display:flex;
-  border-top:1px solid #222;
-}
-
-#input{
-  flex:1;
-  padding:10px;
-  background:#111;
-  border:none;
-  color:white;
-}
-
-#send{
-  background:#d4af37;
-  border:none;
-  padding:10px;
-  cursor:pointer;
-}
 </style>
 </head>
 
@@ -231,7 +229,8 @@ h2{
 <!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png">
+    <!-- YOUR LOGO RESTORED -->
+    <img src="logo.png" alt="logo">
     <h2>ROYAL SITE TRADING</h2>
   </div>
 </nav>
@@ -240,14 +239,14 @@ h2{
 <div class="hero">
   <div class="hero-content">
     <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
-    <div class="btn" onclick="scrollToAbout()">Discover More</div>
+    <div class="btn" onclick="scrollToProjects()">Discover More</div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
+<section>
   <h2>About Us</h2>
-  <p>Premium supplier of construction materials across UAE projects.</p>
+  <p>Premium supplier of construction materials across UAE mega projects.</p>
 
   <div class="cards">
     <div class="card">Steel & Cement Supply</div>
@@ -257,15 +256,44 @@ h2{
   </div>
 </section>
 
-<!-- IMAGES -->
-<section>
+<!-- PROJECTS (UPGRADED) -->
+<section id="projects">
   <h2>Our Projects</h2>
 
-  <div class="images">
-    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80">
-    <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80">
-    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80">
-    <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80">
+  <div class="projects">
+
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80">
+      <div class="project-content">
+        <h3>High-Rise Buildings</h3>
+        <p>Supplying steel and structural materials for major skyscraper developments across UAE.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80">
+      <div class="project-content">
+        <h3>Road Infrastructure</h3>
+        <p>Providing durable construction materials for highways and road expansion projects.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80">
+      <div class="project-content">
+        <h3>Residential Complexes</h3>
+        <p>Supplying full material packages for modern residential communities.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80">
+      <div class="project-content">
+        <h3>Industrial Projects</h3>
+        <p>Heavy-duty industrial supply solutions for factories and warehouses.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -289,17 +317,15 @@ h2{
 
 <script>
 
-function scrollToAbout(){
-  document.getElementById("about").scrollIntoView({behavior:"smooth"});
+function scrollToProjects(){
+  document.getElementById("projects").scrollIntoView({behavior:"smooth"});
 }
 
-/* TOGGLE CHAT */
 function toggleChat(){
   let box=document.getElementById("chatBox");
-  box.style.display = (box.style.display==="block") ? "none" : "block";
+  box.style.display = box.style.display==="block" ? "none" : "block";
 }
 
-/* CHAT */
 function send(){
   let input=document.getElementById("input");
   let text=input.value.trim();
