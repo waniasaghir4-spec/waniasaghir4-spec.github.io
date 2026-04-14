@@ -85,20 +85,13 @@ nav a:hover{
   overflow:hidden;
 }
 
-/* CINEMATIC BACKGROUND */
-.animated-bg{
+/* ✅ FIXED BACKGROUND IMAGE */
+.hero-bg{
   position:absolute;
   inset:0;
-  background:linear-gradient(-45deg,#0b0f1a,#111a2e,#0d1b2a,#1b263b);
-  background-size:400% 400%;
-  animation:moveBG 12s ease infinite;
+  background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd") center/cover no-repeat;
   z-index:-2;
-}
-
-@keyframes moveBG{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+  transform:scale(1.05);
 }
 
 /* OVERLAY */
@@ -200,7 +193,7 @@ h2{
   background:rgba(255,255,255,0.04);
   padding:30px;
   border-radius:12px;
-  border:1px solid rgba(212,175,55,0.2); /* FIXED */
+  border:1px solid rgba(212:175:55,0.2);
 }
 
 .owner-box img{
@@ -295,7 +288,7 @@ h2{
 <div id="home" class="page active">
 
   <div class="hero">
-    <div class="animated-bg"></div>
+    <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
