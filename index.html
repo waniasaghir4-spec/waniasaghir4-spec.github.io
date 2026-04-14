@@ -29,7 +29,7 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(10,15,25,0.7);
+  background:rgba(10,15,25,0.8);
   backdrop-filter:blur(10px);
   z-index:1000;
 }
@@ -49,7 +49,6 @@ nav{
 .logo h2{
   color:#d4af37;
   font-size:16px;
-  letter-spacing:2px;
 }
 
 /* NAV LINKS */
@@ -57,29 +56,52 @@ nav a{
   color:white;
   text-decoration:none;
   margin-left:15px;
+  cursor:pointer;
   opacity:0.8;
 }
 
 nav a:hover{
   color:#d4af37;
-  opacity:1;
 }
 
-/* HERO */
+/* PAGE SYSTEM */
+.page{
+  display:none;
+  padding-top:90px;
+  min-height:100vh;
+}
+
+.active{
+  display:block;
+}
+
+/* HERO VIDEO */
 .hero{
   height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d
+  text-align:center;
   position:relative;
+  overflow:hidden;
 }
 
-.hero::after{
-  content:'';
+.bg-video{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  min-width:100%;
+  min-height:100%;
+  object-fit:cover;
+  z-index:-2;
+}
+
+.hero-overlay{
   position:absolute;
   inset:0;
   background:rgba(0,0,0,0.65);
+  z-index:-1;
 }
 
 .hero-content{
@@ -132,29 +154,47 @@ h2{
 }
 
 /* PROJECTS */
-.images{
+.projects{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:15px;
 }
 
-.images img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
+.project{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(212,175,55,0.2);
   border-radius:12px;
+  overflow:hidden;
 }
 
-/* OWNER PAGE */
-#ownerPage{
-  display:none;
-  padding-top:120px;
+.project img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
 }
 
+/* TEXT UNDER IMAGE */
+.project-text{
+  padding:12px;
+  text-align:left;
+}
+
+.project-text h3{
+  color:#d4af37;
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.project-text p{
+  font-size:13px;
+  opacity:0.8;
+  line-height:1.4;
+}
+
+/* OWNER */
 .owner-box{
   max-width:800px;
   margin:auto;
-  text-align:center;
   background:rgba(255,255,255,0.04);
   padding:30px;
   border-radius:12px;
@@ -165,9 +205,8 @@ h2{
   width:160px;
   height:160px;
   border-radius:50%;
-  object-fit:cover;
   border:3px solid #d4af37;
-  margin-bottom:20px;
+  margin-bottom:15px;
 }
 
 /* WHATSAPP */
@@ -245,26 +284,33 @@ h2{
   </div>
 
   <div>
-    <a href="#" onclick="showHome()">Home</a>
-    <a href="#" onclick="showOwner()">Owner</a>
+    <a onclick="showHome()">Home</a>
+    <a onclick="showOwner()">Owner</a>
   </div>
 </nav>
 
-<!-- HOME PAGE -->
-<div id="homePage">
+<!-- HOME -->
+<div id="home" class="page active">
 
-  <!-- HERO -->
+  <!-- HERO VIDEO -->
   <div class="hero">
+
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="https://cdn.coverr.co/videos/coverr-modern-city-construction-4285/1080p.mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
       <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
       <div class="btn" onclick="scrollToAbout()">Discover More</div>
     </div>
+
   </div>
 
   <!-- ABOUT -->
   <section id="about">
     <h2>About Us</h2>
-    <p>Premium supplier of construction materials across UAE.</p>
 
     <div class="cards">
       <div class="card">Steel Supply</div>
@@ -274,39 +320,68 @@ h2{
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS WITH TEXT -->
   <section>
     <h2>Our Projects</h2>
 
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80">
-      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80">
-      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80">
-      <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80">
+    <div class="projects">
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80">
+        <div class="project-text">
+          <h3>High-Rise Buildings</h3>
+          <p>Supplying premium steel and materials for modern skyscraper construction across UAE.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80">
+        <div class="project-text">
+          <h3>Road Infrastructure</h3>
+          <p>Supporting large highway and road development projects with durable materials.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80">
+        <div class="project-text">
+          <h3>Residential Complexes</h3>
+          <p>Providing full construction supply for modern housing and communities.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80">
+        <div class="project-text">
+          <h3>Industrial Projects</h3>
+          <p>Heavy-duty materials for factories, warehouses and industrial facilities.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
 </div>
 
-<!-- OWNER PAGE (NEW ONLY ADDED PART) -->
-<div id="ownerPage">
+<!-- OWNER -->
+<div id="owner" class="page">
 
   <section>
     <h2>Meet the Owner</h2>
 
     <div class="owner-box">
 
-      <!-- YOU ADD IMAGE HERE -->
       <img src="https://via.placeholder.com/160">
 
-      <!-- YOU EDIT TEXT HERE -->
       <h3>Owner Name</h3>
       <p>
-        Add your owner introduction here.<br><br>
-        Experience, vision, story, achievements, etc.
+        Add your owner story here — experience, vision, achievements, etc.
       </p>
 
     </div>
+
+    <div class="btn" onclick="showHome()">Back to Home</div>
+
   </section>
 
 </div>
@@ -319,9 +394,7 @@ h2{
 
 <div id="chatBox">
   <div id="header">AI Assistant</div>
-
   <div id="body"></div>
-
   <div id="inputBox">
     <input id="input" placeholder="Ask something..." />
     <button id="send" onclick="send()">Send</button>
@@ -331,13 +404,13 @@ h2{
 <script>
 
 function showOwner(){
-  document.getElementById("homePage").style.display="none";
-  document.getElementById("ownerPage").style.display="block";
+  document.getElementById("home").classList.remove("active");
+  document.getElementById("owner").classList.add("active");
 }
 
 function showHome(){
-  document.getElementById("homePage").style.display="block";
-  document.getElementById("ownerPage").style.display="none";
+  document.getElementById("owner").classList.remove("active");
+  document.getElementById("home").classList.add("active");
 }
 
 function scrollToAbout(){
