@@ -33,7 +33,7 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(10,15,20,0.8);
+  background:rgba(10,15,20,0.85);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,255,255,0.06);
   z-index:1000;
@@ -96,6 +96,7 @@ nav{
   line-height:1.6;
 }
 
+/* BUTTON */
 .btn{
   margin-top:25px;
   display:inline-block;
@@ -106,6 +107,7 @@ nav{
   border-radius:8px;
   text-decoration:none;
   transition:0.3s;
+  cursor:pointer;
 }
 
 .btn:hover{
@@ -116,14 +118,6 @@ nav{
 section{
   padding:90px 10%;
   text-align:center;
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.8s ease;
-}
-
-section.show{
-  opacity:1;
-  transform:translateY(0);
 }
 
 h2{
@@ -145,21 +139,14 @@ h2{
   border:1px solid rgba(255,255,255,0.08);
   padding:22px;
   border-radius:10px;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  border-color:#d4af37;
 }
 
 /* CONTACT */
 .contact{
   background:#0a0f16;
-  border-top:1px solid rgba(255,255,255,0.08);
 }
 
-/* WHATSAPP */
+/* ================= WHATSAPP BUTTON FIX ================= */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -169,8 +156,8 @@ h2{
   border-radius:50px;
   color:white;
   text-decoration:none;
-  font-weight:600;
-  z-index:999;
+  font-weight:700;
+  z-index:9999;
 }
 
 /* ================= AI CHAT BOX ================= */
@@ -180,11 +167,12 @@ h2{
   right:20px;
   width:300px;
   background:#0b0f14;
-  border:1px solid rgba(212,175,55,0.3);
+  border:1px solid #d4af37;
   border-radius:12px;
   overflow:hidden;
   font-size:14px;
   z-index:9999;
+  box-shadow:0 0 20px rgba(212,175,55,0.2);
 }
 
 #chatHeader{
@@ -195,7 +183,7 @@ h2{
 }
 
 #chatBody{
-  height:220px;
+  height:200px;
   overflow-y:auto;
   padding:10px;
   display:flex;
@@ -246,10 +234,9 @@ h2{
 
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="logo.png">
+    <img src="logo.png" alt="logo">
     <h2>ROYAL SITE TRADING</h2>
   </div>
 </nav>
@@ -258,18 +245,17 @@ h2{
 <div class="hero">
   <div class="hero-content">
     <h1>Building UAE’s Future <br><span>With Strength & Trust</span></h1>
-    <p>Premium supplier of construction materials across Abu Dhabi.</p>
+
+    <!-- FIXED BUTTON -->
     <a class="btn" href="#about">Discover More</a>
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <h2>About Us</h2>
-  <p>We supply high-quality construction materials across UAE projects.</p>
+  <p>We supply high-quality construction materials across UAE.</p>
 </section>
 
-<!-- SERVICES -->
 <section>
   <h2>Services</h2>
   <div class="cards">
@@ -280,46 +266,34 @@ h2{
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact">
   <h2>Contact</h2>
   <p>📍 Abu Dhabi, UAE</p>
   <p>📞 +971XXXXXXXXX</p>
 </section>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/971XXXXXXXXX">WhatsApp</a>
+<!-- FIXED WHATSAPP BUTTON -->
+<a class="whatsapp"
+   href="https://wa.me/971XXXXXXXXX"
+   target="_blank">
+   WhatsApp
+</a>
 
-<!-- ================= AI CHAT BOX ================= -->
+<!-- AI CHAT BOX -->
 <div id="aiChat">
-  <div id="chatHeader">💬 Royal Site AI Assistant</div>
+  <div id="chatHeader">💬 Ask AI Assistant</div>
 
   <div id="chatBody"></div>
 
   <div id="chatInputArea">
-    <input id="userInput" type="text" placeholder="Ask about pricing, delivery..." />
+    <input id="userInput" type="text" placeholder="Ask something..." />
     <button id="sendBtn" onclick="sendMessage()">Send</button>
   </div>
 </div>
 
-<!-- SCRIPT -->
 <script>
 
-// SCROLL ANIMATION
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-},{threshold:0.2});
-
-sections.forEach(sec=>observer.observe(sec));
-
-
-// AI CHAT FUNCTION
+// SIMPLE CHAT FUNCTION
 function sendMessage(){
   const input = document.getElementById("userInput");
   const text = input.value.trim();
@@ -329,8 +303,8 @@ function sendMessage(){
   input.value="";
 
   setTimeout(()=>{
-    addMessage(botReply(text),"bot");
-  },600);
+    addMessage(getReply(text),"bot");
+  },500);
 }
 
 function addMessage(text,type){
@@ -342,18 +316,26 @@ function addMessage(text,type){
   chat.scrollTop = chat.scrollHeight;
 }
 
-// SIMPLE BUSINESS AI RESPONSES
-function botReply(msg){
+function getReply(msg){
   msg = msg.toLowerCase();
 
-  if(msg.includes("price")) return "Pricing depends on quantity. Please share your requirement 📦";
-  if(msg.includes("cement")) return "We supply premium cement across UAE 🏗";
-  if(msg.includes("steel")) return "We provide industrial-grade steel 🔩";
-  if(msg.includes("delivery")) return "Fast UAE-wide delivery available 🚚";
-  if(msg.includes("hello") || msg.includes("hi")) return "Hello 👋 How can we help you today?";
+  if(msg.includes("price")) return "Prices depend on quantity 📦";
+  if(msg.includes("cement")) return "We supply premium cement 🏗";
+  if(msg.includes("steel")) return "We provide industrial steel 🔩";
+  if(msg.includes("delivery")) return "Fast UAE delivery available 🚚";
+  if(msg.includes("hello")) return "Hello 👋 How can we help?";
 
-  return "Thanks! Our team will contact you shortly 📞";
+  return "Thanks! Our team will contact you soon 📞";
 }
+
+// SMOOTH SCROLL FIX (extra safety)
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener("click",function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href"))
+    .scrollIntoView({behavior:"smooth"});
+  });
+});
 
 </script>
 
