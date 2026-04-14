@@ -15,6 +15,10 @@
   font-family:Montserrat, sans-serif;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   background:#05070c;
   color:white;
@@ -30,10 +34,10 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:16px 60px;
-  background:rgba(0,0,0,0.55);
-  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(14px);
   z-index:999;
-  border-bottom:1px solid rgba(212,175,55,0.15);
+  border-bottom:1px solid rgba(212,175,55,0.2);
 }
 
 .logo{
@@ -63,9 +67,11 @@ nav{
   text-align:center;
   padding:0 20px;
   position:relative;
+  overflow:hidden;
   background:
-    radial-gradient(circle at top, rgba(212,175,55,0.15), transparent 55%),
-    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    radial-gradient(circle at top, rgba(212,175,55,0.18), transparent 60%),
+    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80')
+    center/cover no-repeat;
 }
 
 .hero::after{
@@ -82,9 +88,9 @@ nav{
 }
 
 .hero h1{
-  font-size:58px;
-  line-height:1.1;
+  font-size:60px;
   font-weight:800;
+  line-height:1.1;
 }
 
 .hero span{
@@ -98,29 +104,56 @@ nav{
   line-height:1.6;
 }
 
+/* BUTTON (cinematic upgrade) */
 .btn{
   margin-top:30px;
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
   padding:15px 34px;
-  background:linear-gradient(45deg,#d4af37,#ffdf7e);
+  background:linear-gradient(45deg,#d4af37,#ffe08a);
   color:black;
   font-weight:800;
-  border-radius:12px;
+  border-radius:14px;
   text-decoration:none;
   transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.35);
+  transform:skewX(-20deg);
+  transition:0.6s;
+}
+
+.btn:hover::after{
+  left:120%;
 }
 
 .btn:hover{
   transform:scale(1.08);
 }
 
+.btn span{
+  display:inline-block;
+  animation:bounce 1.5s infinite;
+}
+
 /* SECTIONS */
 section{
-  padding:100px 10%;
+  padding:110px 10%;
   text-align:center;
   opacity:0;
-  transform:translateY(40px);
-  transition:all 0.9s ease;
+  transform:translateY(50px);
+  transition:all 1s ease;
+  scroll-margin-top:90px;
 }
 
 section.show{
@@ -132,14 +165,6 @@ h2{
   font-size:34px;
   color:#d4af37;
   margin-bottom:18px;
-  letter-spacing:1px;
-}
-
-.subtext{
-  max-width:800px;
-  margin:0 auto 40px;
-  opacity:0.75;
-  line-height:1.7;
 }
 
 /* STATS */
@@ -161,7 +186,8 @@ h2{
 }
 
 .stat-box:hover{
-  transform:translateY(-8px);
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 30px rgba(212,175,55,0.15);
 }
 
 .stat-box h3{
@@ -187,9 +213,9 @@ h2{
 }
 
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-12px);
   border-color:#d4af37;
-  box-shadow:0 0 30px rgba(212,175,55,0.15);
+  box-shadow:0 0 35px rgba(212,175,55,0.18);
 }
 
 /* PROJECTS */
@@ -212,29 +238,7 @@ h2{
 }
 
 .project:hover{
-  transform:scale(1.03);
-  border-color:#d4af37;
-}
-
-/* CLIENTS */
-.clients{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-.client{
-  width:130px;
-  height:80px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(212,175,55,0.15);
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:12px;
-  opacity:0.85;
+  transform:scale(1.05);
 }
 
 /* CONTACT */
@@ -257,10 +261,31 @@ h2{
   z-index:999;
 }
 
-/* ANIMATION */
+/* ANIMATIONS */
 @keyframes fadeUp{
   from{opacity:0; transform:translateY(30px);}
   to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(5px);}
+}
+
+/* PARTICLES */
+.particle{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:rgba(212,175,55,0.6);
+  border-radius:50%;
+  animation:float 10s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh) scale(0.5); opacity:0;}
+  50%{opacity:1;}
+  to{transform:translateY(-10vh) scale(1); opacity:0;}
 }
 </style>
 </head>
@@ -269,114 +294,51 @@ h2{
 
 <nav>
   <div class="logo">
-    <img src="logo.png" alt="logo">
+    <img src="logo.png">
     <h2>ROYAL SITE TRADING</h2>
   </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="hero">
   <div class="hero-content">
     <h1>Powering UAE Construction <br><span>With Strength & Precision</span></h1>
-    <p>
-      A premium construction materials supplier in Abu Dhabi delivering steel, cement, electrical & hardware solutions
-      for world-class infrastructure projects across the UAE.
-    </p>
-    <a class="btn" href="#about">Explore Our Company</a>
+    <p>Premium supplier of construction materials across Abu Dhabi delivering excellence in every project.</p>
+    <a class="btn" href="#about">Explore More <span>↓</span></a>
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
-  <h2>ABOUT OUR COMPANY</h2>
-  <p class="subtext">
-    Royal Site Trading is a trusted UAE supplier for high-performance construction materials.
-    We support contractors, developers, and engineering giants with reliable, fast, and scalable supply solutions.
-  </p>
+  <h2>ABOUT US</h2>
+  <p>Trusted supplier powering UAE’s biggest infrastructure projects.</p>
 
   <div class="stats">
-    <div class="stat-box">
-      <h3>500+</h3>
-      <p>Projects Supplied</p>
-    </div>
-
-    <div class="stat-box">
-      <h3>10+</h3>
-      <p>Years Experience</p>
-    </div>
-
-    <div class="stat-box">
-      <h3>200+</h3>
-      <p>Contractors Served</p>
-    </div>
+    <div class="stat-box"><h3>500+</h3><p>Projects</p></div>
+    <div class="stat-box"><h3>10+</h3><p>Years</p></div>
+    <div class="stat-box"><h3>200+</h3><p>Clients</p></div>
   </div>
 </section>
 
-<!-- SERVICES -->
 <section>
-  <h2>WHAT WE DELIVER</h2>
+  <h2>SERVICES</h2>
   <div class="cards">
-    <div class="card">🏗 Full Construction Supply Chain</div>
-    <div class="card">🔩 Steel & Heavy Materials Supply</div>
-    <div class="card">🚚 Fast UAE-Wide Delivery Network</div>
-    <div class="card">📦 Bulk Industrial Project Orders</div>
+    <div class="card">Construction Supply</div>
+    <div class="card">Steel Materials</div>
+    <div class="card">Fast UAE Delivery</div>
+    <div class="card">Bulk Orders</div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section>
-  <h2>PROJECT EXPERIENCE</h2>
-  <p class="subtext">We contribute materials and logistics support to major UAE developments.</p>
-
-  <div class="projects">
-    <div class="project">High-Rise Towers</div>
-    <div class="project">Road Infrastructure</div>
-    <div class="project">Luxury Villas</div>
-    <div class="project">Industrial Zones</div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section>
-  <h2>PRODUCT RANGE</h2>
-  <div class="cards">
-    <div class="card">🧱 Cement & Concrete Systems</div>
-    <div class="card">⚡ Electrical Components</div>
-    <div class="card">🚿 Plumbing & Sanitary Solutions</div>
-    <div class="card">🛠 Industrial Hardware Tools</div>
-  </div>
-</section>
-
-<!-- CLIENTS -->
-<section>
-  <h2>TRUSTED BY</h2>
-  <p class="subtext">Contractors, builders & engineering companies across the UAE rely on us.</p>
-
-  <div class="clients">
-    <div class="client">Construction Co</div>
-    <div class="client">Engineering Firm</div>
-    <div class="client">Developer Group</div>
-    <div class="client">Infrastructure Team</div>
-  </div>
-</section>
-
-<!-- CONTACT -->
 <section class="contact">
-  <h2>LET’S BUILD TOGETHER</h2>
-  <p class="subtext">
-    Contact us for quotations, bulk orders, and long-term supply partnerships across UAE projects.
-  </p>
-
-  <p>📍 Abu Dhabi, United Arab Emirates</p>
+  <h2>CONTACT</h2>
+  <p>📍 Abu Dhabi, UAE</p>
   <p>📞 +971XXXXXXXXX</p>
-  <p>📩 Available 24/7 for project inquiries</p>
 </section>
 
-<a class="whatsapp" href="https://wa.me/971XXXXXXXXX">
-  WhatsApp
-</a>
+<a class="whatsapp" href="https://wa.me/971XXXXXXXXX">WhatsApp</a>
 
 <script>
+// reveal sections
 const sections = document.querySelectorAll("section");
 
 const observer = new IntersectionObserver(entries=>{
@@ -388,6 +350,22 @@ const observer = new IntersectionObserver(entries=>{
 },{threshold:0.15});
 
 sections.forEach(sec=>observer.observe(sec));
+
+// parallax hero effect
+window.addEventListener("scroll", ()=>{
+  const hero = document.getElementById("hero");
+  let offset = window.pageYOffset;
+  hero.style.backgroundPositionY = offset * 0.5 + "px";
+});
+
+// floating particles
+for(let i=0;i<18;i++){
+  let p = document.createElement("div");
+  p.className = "particle";
+  p.style.left = Math.random()*100 + "vw";
+  p.style.animationDuration = (6+Math.random()*8)+"s";
+  document.body.appendChild(p);
+}
 </script>
 
 </body>
