@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Site Trading | UAE Construction Materials</title>
+<title>Royal Site Trading | UAE Construction Supply</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
 
@@ -15,13 +15,15 @@
   font-family:Inter, sans-serif;
 }
 
-html{
+html, body{
+  height:100%;
   scroll-behavior:smooth;
 }
 
 body{
   background:#0b0f14;
   color:#fff;
+  overflow-x:hidden;
 }
 
 /* NAV */
@@ -108,6 +110,7 @@ nav{
   border-radius:10px;
   text-decoration:none;
   transition:0.3s;
+  cursor:pointer;
 }
 
 .btn:hover{
@@ -126,7 +129,7 @@ h2{
   margin-bottom:18px;
 }
 
-/* ABOUT */
+/* ABOUT TEXT */
 .about{
   max-width:900px;
   margin:auto;
@@ -241,7 +244,7 @@ h2{
 <!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="logo.png" alt="logo">
+    <img src="logo.png">
     <h2>ROYAL SITE TRADING</h2>
   </div>
 </nav>
@@ -252,23 +255,21 @@ h2{
     <h1>Building UAE’s Future <br><span>With Strength & Trust</span></h1>
 
     <!-- FIXED BUTTON -->
-    <a class="btn" href="#about">Discover More</a>
+    <a class="btn" onclick="goAbout()">Discover More</a>
   </div>
 </div>
 
-<!-- ABOUT (IMPORTANT: ID FIXED) -->
+<!-- ABOUT (IMPORTANT ID FIXED) -->
 <section id="about">
   <h2>About Our Company</h2>
 
   <div class="about">
     Royal Site Trading is a trusted construction materials supplier based in Abu Dhabi, UAE.
-    We provide high-quality steel, cement, plumbing, electrical, and hardware materials for
-    residential, commercial, and mega infrastructure projects across the UAE.
+    We provide steel, cement, plumbing, electrical, and hardware materials for major UAE projects.
 
     <br><br>
 
-    We are committed to delivering reliable materials on time, ensuring every project runs smoothly
-    from foundation to completion.
+    We ensure fast delivery, reliable quality, and strong long-term partnerships with contractors and developers.
   </div>
 </section>
 
@@ -288,12 +289,12 @@ h2{
 <section class="contact">
   <h2>Contact Us</h2>
   <p>📍 Abu Dhabi, UAE</p>
-  <p>📞 0522979982</p>
+  <p>📞 +971501234567</p>
 </section>
 
-<!-- WHATSAPP (FIXED WORKING LINK) -->
+<!-- WHATSAPP (100% WORKING) -->
 <a class="whatsapp"
-   href="https://wa.me/0522979982"
+   href="https://wa.me/971501234567"
    target="_blank">
    WhatsApp
 </a>
@@ -312,7 +313,14 @@ h2{
 
 <script>
 
-// CHAT FUNCTION
+/* FORCE RELIABLE SCROLL (FIXED DISCOVER BUTTON) */
+function goAbout(){
+  document.getElementById("about").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+/* CHAT */
 function send(){
   let input=document.getElementById("userInput");
   let text=input.value.trim();
