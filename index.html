@@ -51,6 +51,19 @@ nav{
   font-size:16px;
 }
 
+/* NAV LINKS */
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:15px;
+  cursor:pointer;
+  opacity:0.8;
+}
+
+nav a:hover{
+  color:#d4af37;
+}
+
 /* PAGE SYSTEM */
 .page{
   display:none;
@@ -72,7 +85,7 @@ nav{
   overflow:hidden;
 }
 
-/* CINEMATIC BACKGROUND (FIXED) */
+/* CINEMATIC BACKGROUND */
 .animated-bg{
   position:absolute;
   inset:0;
@@ -187,7 +200,7 @@ h2{
   background:rgba(255,255,255,0.04);
   padding:30px;
   border-radius:12px;
-  border:1px solid rgba(212,175,55,0.2);
+  border:1px solid rgba(212,175,55,0.2); /* FIXED */
 }
 
 .owner-box img{
@@ -271,14 +284,17 @@ h2{
     <img src="logo.png">
     <h2>ROYAL SITE TRADING</h2>
   </div>
+
+  <div>
+    <a onclick="showHome()">Home</a>
+    <a onclick="showOwner()">Owner</a>
+  </div>
 </nav>
 
 <!-- HOME -->
 <div id="home" class="page active">
 
-  <!-- HERO -->
   <div class="hero">
-
     <div class="animated-bg"></div>
     <div class="hero-overlay"></div>
 
@@ -286,7 +302,6 @@ h2{
       <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
       <div class="btn" onclick="scrollToAbout()">Discover More</div>
     </div>
-
   </div>
 
   <!-- ABOUT -->
@@ -310,7 +325,6 @@ h2{
     <h2>Our Projects</h2>
 
     <div class="projects">
-
       <div class="project">
         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
         <div class="project-text">
@@ -334,7 +348,6 @@ h2{
           <p>Modern housing developments across UAE.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -377,7 +390,16 @@ function scrollToAbout(){
   document.getElementById("about").scrollIntoView({behavior:"smooth"});
 }
 
-/* CHAT */
+function showHome(){
+  document.getElementById("owner").classList.remove("active");
+  document.getElementById("home").classList.add("active");
+}
+
+function showOwner(){
+  document.getElementById("home").classList.remove("active");
+  document.getElementById("owner").classList.add("active");
+}
+
 function toggleChat(){
   let box=document.getElementById("chatBox");
   box.style.display = box.style.display==="block" ? "none" : "block";
