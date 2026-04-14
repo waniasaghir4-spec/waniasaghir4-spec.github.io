@@ -29,7 +29,7 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(10,15,25,0.8);
+  background:rgba(10,15,25,0.85);
   backdrop-filter:blur(10px);
   z-index:1000;
 }
@@ -51,6 +51,18 @@ nav{
   font-size:16px;
 }
 
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:15px;
+  cursor:pointer;
+  opacity:0.8;
+}
+
+nav a:hover{
+  color:#d4af37;
+}
+
 /* PAGE SYSTEM */
 .page{
   display:none;
@@ -61,7 +73,7 @@ nav{
   display:block;
 }
 
-/* HERO VIDEO FIX */
+/* HERO VIDEO */
 .hero{
   height:100vh;
   display:flex;
@@ -70,10 +82,10 @@ nav{
   text-align:center;
   position:relative;
   overflow:hidden;
-
-  background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  background:#000;
 }
 
+/* VIDEO */
 .bg-video{
   position:absolute;
   top:0;
@@ -84,10 +96,11 @@ nav{
   z-index:-2;
 }
 
+/* OVERLAY */
 .hero-overlay{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.65);
+  background:rgba(0,0,0,0.6);
   z-index:-1;
 }
 
@@ -97,7 +110,7 @@ nav{
 }
 
 .hero h1{
-  font-size:56px;
+  font-size:54px;
 }
 
 .hero span{
@@ -115,7 +128,7 @@ nav{
   cursor:pointer;
 }
 
-/* SECTIONS (UNCHANGED STYLE) */
+/* SECTIONS */
 section{
   padding:100px 10%;
   text-align:center;
@@ -140,7 +153,7 @@ h2{
   border:1px solid rgba(212,175,55,0.2);
 }
 
-/* PROJECTS RESTORED */
+/* PROJECTS */
 .projects{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -173,7 +186,6 @@ h2{
 .project-text p{
   font-size:13px;
   opacity:0.8;
-  line-height:1.4;
 }
 
 /* OWNER */
@@ -229,6 +241,7 @@ h2{
   border:1px solid #d4af37;
   border-radius:12px;
   display:none;
+  z-index:9999;
 }
 
 #header{
@@ -266,16 +279,21 @@ h2{
     <img src="logo.png">
     <h2>ROYAL SITE TRADING</h2>
   </div>
+
+  <div>
+    <a onclick="showHome()">Home</a>
+    <a onclick="showOwner()">Owner</a>
+  </div>
 </nav>
 
 <!-- HOME -->
 <div id="home" class="page active">
 
-  <!-- HERO VIDEO -->
+  <!-- HERO -->
   <div class="hero">
 
     <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
-      <source src="https://cdn.pixabay.com/video/2022/10/30/137574-765535308_large.mp4">
+      <source src="https://cdn.pixabay.com/video/2022/10/30/137574-765535308_large.mp4" type="video/mp4">
     </video>
 
     <div class="hero-overlay"></div>
@@ -287,23 +305,23 @@ h2{
 
   </div>
 
-  <!-- ABOUT (RESTORED PROPERLY) -->
+  <!-- ABOUT -->
   <section id="about">
     <h2>About Us</h2>
     <p class="subtext">
-      We are a trusted construction materials supplier providing high-quality steel, cement,
-      electrical, plumbing, and hardware solutions for major UAE developments.
+      We are a trusted construction supplier in UAE providing steel, cement, electrical,
+      plumbing and hardware solutions for major projects.
     </p>
 
     <div class="cards">
-      <div class="card">🏗 Construction Supply Solutions</div>
-      <div class="card">🔩 Steel & Industrial Materials</div>
-      <div class="card">🚚 UAE Logistics & Delivery</div>
-      <div class="card">📦 Bulk Project Supply</div>
+      <div class="card">🏗 Construction Supply</div>
+      <div class="card">🔩 Steel Materials</div>
+      <div class="card">🚚 Fast Delivery</div>
+      <div class="card">📦 Bulk Orders</div>
     </div>
   </section>
 
-  <!-- PROJECTS (RESTORED FULL VERSION) -->
+  <!-- PROJECTS -->
   <section>
     <h2>Our Projects</h2>
 
@@ -313,7 +331,7 @@ h2{
         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
         <div class="project-text">
           <h3>High-Rise Buildings</h3>
-          <p>Supplying premium steel and materials for skyscraper projects across UAE.</p>
+          <p>Supplying premium materials for skyscrapers across UAE.</p>
         </div>
       </div>
 
@@ -321,28 +339,105 @@ h2{
         <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
         <div class="project-text">
           <h3>Road Infrastructure</h3>
-          <p>Supporting highway and large-scale transport development projects.</p>
+          <p>Supporting major highway development projects.</p>
         </div>
       </div>
 
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c">
+        <div class="project-text">
+          <h3>Residential Projects</h3>
+          <p>Supplying materials for modern housing communities.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- OWNER -->
+<div id="owner" class="page">
+
+  <section>
+    <h2>Meet the Owner</h2>
+
+    <div class="owner-box">
+      <img src="https://via.placeholder.com/160">
+      <h3>Owner Name</h3>
+      <p>Write your owner introduction here.</p>
     </div>
 
   </section>
 
 </div>
 
-<script>
-function scrollToAbout(){
-  document.getElementById("about").scrollIntoView({behavior:"smooth"});
-}
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
 
-/* FORCE PLAY VIDEO */
+<!-- CHAT -->
+<div id="chatBtn" onclick="toggleChat()">AI Chat</div>
+
+<div id="chatBox">
+  <div id="header">AI Assistant</div>
+  <div id="body"></div>
+  <div id="inputBox">
+    <input id="input" placeholder="Ask something..." />
+    <button id="send" onclick="send()">Send</button>
+  </div>
+</div>
+
+<script>
+
+/* VIDEO FORCE PLAY */
 window.addEventListener("load", () => {
   const video = document.getElementById("bgVideo");
   if(video){
     video.play().catch(()=>{});
   }
 });
+
+/* NAV */
+function showHome(){
+  document.getElementById("owner").classList.remove("active");
+  document.getElementById("home").classList.add("active");
+}
+
+function showOwner(){
+  document.getElementById("home").classList.remove("active");
+  document.getElementById("owner").classList.add("active");
+}
+
+function scrollToAbout(){
+  document.getElementById("about").scrollIntoView({behavior:"smooth"});
+}
+
+/* CHAT */
+function toggleChat(){
+  let box=document.getElementById("chatBox");
+  box.style.display = box.style.display==="block" ? "none" : "block";
+}
+
+function send(){
+  let input=document.getElementById("input");
+  let text=input.value.trim();
+  if(!text) return;
+
+  let div=document.createElement("div");
+  div.className="msg user";
+  div.innerText=text;
+  document.getElementById("body").appendChild(div);
+
+  input.value="";
+
+  setTimeout(()=>{
+    let bot=document.createElement("div");
+    bot.className="msg bot";
+    bot.innerText="We will contact you shortly 📞";
+    document.getElementById("body").appendChild(bot);
+  },600);
+}
+
 </script>
 
 </body>
