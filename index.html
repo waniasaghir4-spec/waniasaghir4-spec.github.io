@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Site Trading</title>
+<title>Royal Site Trading | UAE Construction Supply</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -29,7 +29,7 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  padding:18px 60px;
+  padding:16px 60px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -71,18 +71,18 @@ nav{
   content:'';
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.65);
+  background:rgba(0,0,0,0.7);
 }
 
 .hero-content{
   position:relative;
-  max-width:800px;
+  max-width:900px;
 }
 
 .hero h1{
-  font-size:54px;
-  font-weight:700;
-  line-height:1.2;
+  font-size:58px;
+  font-weight:800;
+  line-height:1.1;
 }
 
 .hero span{
@@ -90,24 +90,23 @@ nav{
 }
 
 .hero p{
-  margin-top:15px;
-  opacity:0.8;
-  font-size:16px;
+  margin-top:18px;
+  font-size:17px;
+  opacity:0.85;
   line-height:1.6;
 }
 
 /* BUTTON */
 .btn{
-  margin-top:25px;
+  margin-top:28px;
   display:inline-block;
-  padding:14px 30px;
+  padding:14px 32px;
   background:#d4af37;
   color:#000;
-  font-weight:600;
-  border-radius:8px;
+  font-weight:700;
+  border-radius:10px;
   text-decoration:none;
   transition:0.3s;
-  cursor:pointer;
 }
 
 .btn:hover{
@@ -116,20 +115,20 @@ nav{
 
 /* SECTIONS */
 section{
-  padding:90px 10%;
+  padding:100px 10%;
   text-align:center;
 }
 
 h2{
-  font-size:30px;
-  margin-bottom:15px;
+  font-size:34px;
   color:#d4af37;
+  margin-bottom:18px;
 }
 
 /* CARDS */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:18px;
   margin-top:30px;
 }
@@ -137,8 +136,39 @@ h2{
 .card{
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.08);
-  padding:22px;
-  border-radius:10px;
+  padding:24px;
+  border-radius:12px;
+}
+
+/* ABOUT BOX */
+.about-box{
+  max-width:900px;
+  margin:auto;
+  font-size:16px;
+  line-height:1.8;
+  opacity:0.9;
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.stat{
+  padding:20px;
+  width:180px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(212,175,55,0.2);
+  border-radius:12px;
+}
+
+.stat h3{
+  color:#d4af37;
+  font-size:30px;
 }
 
 /* CONTACT */
@@ -146,7 +176,7 @@ h2{
   background:#0a0f16;
 }
 
-/* ================= WHATSAPP BUTTON FIX ================= */
+/* WHATSAPP */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -160,7 +190,7 @@ h2{
   z-index:9999;
 }
 
-/* ================= AI CHAT BOX ================= */
+/* AI CHAT */
 #aiChat{
   position:fixed;
   bottom:90px;
@@ -170,9 +200,7 @@ h2{
   border:1px solid #d4af37;
   border-radius:12px;
   overflow:hidden;
-  font-size:14px;
   z-index:9999;
-  box-shadow:0 0 20px rgba(212,175,55,0.2);
 }
 
 #chatHeader{
@@ -194,7 +222,6 @@ h2{
 .msg{
   padding:8px 10px;
   border-radius:8px;
-  max-width:85%;
 }
 
 .user{
@@ -208,7 +235,7 @@ h2{
   align-self:flex-start;
 }
 
-#chatInputArea{
+#inputArea{
   display:flex;
   border-top:1px solid rgba(255,255,255,0.1);
 }
@@ -227,7 +254,6 @@ h2{
   border:none;
   padding:10px 14px;
   cursor:pointer;
-  font-weight:700;
 }
 </style>
 </head>
@@ -236,106 +262,118 @@ h2{
 
 <nav>
   <div class="logo">
-    <img src="logo.png" alt="logo">
+    <img src="logo.png">
     <h2>ROYAL SITE TRADING</h2>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO (FIXED + STRONG MESSAGE) -->
 <div class="hero">
   <div class="hero-content">
-    <h1>Building UAE’s Future <br><span>With Strength & Trust</span></h1>
-
-    <!-- FIXED BUTTON -->
+    <h1>Powering UAE Construction <br><span>With Strength, Speed & Trust</span></h1>
+    <p>
+      A leading Abu Dhabi supplier of construction materials including steel, cement, plumbing,
+      electrical systems & industrial hardware for mega infrastructure projects across the UAE.
+    </p>
     <a class="btn" href="#about">Discover More</a>
   </div>
 </div>
 
+<!-- ABOUT (FIXED CONTENT - MORE INFO) -->
 <section id="about">
-  <h2>About Us</h2>
-  <p>We supply high-quality construction materials across UAE.</p>
-</section>
+  <h2>About Our Company</h2>
 
-<section>
-  <h2>Services</h2>
-  <div class="cards">
-    <div class="card">Construction Materials</div>
-    <div class="card">Steel Supply</div>
-    <div class="card">UAE Delivery</div>
-    <div class="card">Bulk Orders</div>
+  <div class="about-box">
+    Royal Site Trading is a trusted construction materials supplier based in Abu Dhabi, UAE.
+    We support contractors, developers, and engineering companies by providing high-quality
+    materials for residential, commercial, and mega infrastructure projects.
+
+    <br><br>
+
+    Our mission is simple: deliver reliable materials, on time, every time — helping build
+    the future of the UAE’s skyline.
+  </div>
+
+  <div class="stats">
+    <div class="stat"><h3>500+</h3><p>Projects</p></div>
+    <div class="stat"><h3>10+</h3><p>Years</p></div>
+    <div class="stat"><h3>200+</h3><p>Clients</p></div>
   </div>
 </section>
 
+<!-- SERVICES -->
+<section>
+  <h2>Our Services</h2>
+
+  <div class="cards">
+    <div class="card">🏗 Construction Materials Supply</div>
+    <div class="card">🔩 Steel & Heavy Industrial Supply</div>
+    <div class="card">🚚 Fast UAE-Wide Delivery</div>
+    <div class="card">📦 Bulk Project Orders</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section class="contact">
-  <h2>Contact</h2>
-  <p>📍 Abu Dhabi, UAE</p>
+  <h2>Contact Us</h2>
+  <p>📍 Abu Dhabi, United Arab Emirates</p>
   <p>📞 +971XXXXXXXXX</p>
 </section>
 
-<!-- FIXED WHATSAPP BUTTON -->
+<!-- WHATSAPP (FIXED WORKING) -->
 <a class="whatsapp"
    href="https://wa.me/971XXXXXXXXX"
    target="_blank">
    WhatsApp
 </a>
 
-<!-- AI CHAT BOX -->
+<!-- AI CHAT -->
 <div id="aiChat">
-  <div id="chatHeader">💬 Ask AI Assistant</div>
+  <div id="chatHeader">💬 AI Assistant</div>
 
   <div id="chatBody"></div>
 
-  <div id="chatInputArea">
-    <input id="userInput" type="text" placeholder="Ask something..." />
-    <button id="sendBtn" onclick="sendMessage()">Send</button>
+  <div id="inputArea">
+    <input id="userInput" placeholder="Ask about pricing..." />
+    <button id="sendBtn" onclick="send()">Send</button>
   </div>
 </div>
 
 <script>
 
-// SIMPLE CHAT FUNCTION
-function sendMessage(){
-  const input = document.getElementById("userInput");
-  const text = input.value.trim();
+function send(){
+  let input = document.getElementById("userInput");
+  let text = input.value.trim();
   if(!text) return;
 
-  addMessage(text,"user");
+  add(text,"user");
   input.value="";
 
   setTimeout(()=>{
-    addMessage(getReply(text),"bot");
+    add(reply(text),"bot");
   },500);
 }
 
-function addMessage(text,type){
-  const chat = document.getElementById("chatBody");
-  const msg = document.createElement("div");
-  msg.className = "msg " + type;
-  msg.innerText = text;
-  chat.appendChild(msg);
-  chat.scrollTop = chat.scrollHeight;
+function add(t,type){
+  let chat=document.getElementById("chatBody");
+  let div=document.createElement("div");
+  div.className="msg "+type;
+  div.innerText=t;
+  chat.appendChild(div);
+  chat.scrollTop=chat.scrollHeight;
 }
 
-function getReply(msg){
-  msg = msg.toLowerCase();
+function reply(msg){
+  msg=msg.toLowerCase();
 
   if(msg.includes("price")) return "Prices depend on quantity 📦";
   if(msg.includes("cement")) return "We supply premium cement 🏗";
-  if(msg.includes("steel")) return "We provide industrial steel 🔩";
+  if(msg.includes("steel")) return "High-grade steel available 🔩";
   if(msg.includes("delivery")) return "Fast UAE delivery available 🚚";
   if(msg.includes("hello")) return "Hello 👋 How can we help?";
 
-  return "Thanks! Our team will contact you soon 📞";
+  return "Our team will respond shortly 📞";
 }
-
-// SMOOTH SCROLL FIX (extra safety)
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener("click",function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href"))
-    .scrollIntoView({behavior:"smooth"});
-  });
-});
 
 </script>
 
