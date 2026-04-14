@@ -8,17 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Poppins, sans-serif;
-}
-
-body{
-  background:#070a0f;
-  color:#fff;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+body{background:#070a0f;color:white;}
 
 /* HERO */
 .hero{
@@ -27,34 +18,23 @@ body{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:0 20px;
-  background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover;
   position:relative;
 }
-
 .hero::after{
   content:'';
   position:absolute;
   inset:0;
   background:rgba(0,0,0,0.65);
 }
-
-.hero-content{
-  position:relative;
-}
-
-.hero h1{
-  font-size:56px;
-}
-
-.hero span{
-  color:#f5c542;
-}
+.hero-content{position:relative;}
+.hero h1{font-size:58px;}
+.hero span{color:#f5c542;}
 
 .btn{
-  margin-top:25px;
+  margin-top:20px;
   display:inline-block;
-  padding:14px 30px;
+  padding:14px 28px;
   background:#f5c542;
   color:#000;
   font-weight:700;
@@ -62,10 +42,77 @@ body{
   cursor:pointer;
 }
 
-/* SECTION */
-section{
-  padding:90px 10%;
+/* IMAGES SECTION */
+.gallery{
+  padding:80px 10%;
   text-align:center;
+}
+.gallery h2{color:#f5c542;font-size:32px;margin-bottom:20px;}
+
+.images{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+.images img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+/* CHAT */
+#chatBox{
+  position:fixed;
+  right:20px;
+  bottom:90px;
+  width:340px;
+  background:#0b0f14;
+  border:1px solid #f5c542;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+#header{
+  background:#f5c542;
+  color:black;
+  padding:10px;
+  font-weight:700;
+}
+
+#messages{
+  height:250px;
+  overflow-y:auto;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.msg{padding:8px;border-radius:8px;font-size:14px;}
+.user{background:#1e2633;align-self:flex-end;}
+.bot{background:rgba(245,197,66,0.15);align-self:flex-start;}
+
+#input{
+  display:flex;
+  border-top:1px solid #222;
+}
+
+#text{
+  flex:1;
+  padding:10px;
+  background:#111;
+  color:white;
+  border:none;
+}
+
+#send{
+  background:#f5c542;
+  border:none;
+  padding:10px;
+  cursor:pointer;
 }
 
 /* WHATSAPP */
@@ -74,182 +121,86 @@ section{
   bottom:20px;
   right:20px;
   background:#25D366;
-  padding:14px 18px;
+  padding:14px;
   border-radius:50px;
-  color:white;
+  font-weight:700;
   text-decoration:none;
-  font-weight:700;
-  z-index:9999;
-}
-
-/* AI CHAT */
-#aiChat{
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  width:340px;
-  background:#0b0f14;
-  border:1px solid #f5c542;
-  border-radius:14px;
-  overflow:hidden;
-  z-index:9999;
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
-
-#chatHeader{
-  background:#f5c542;
-  color:#000;
-  padding:10px;
-  font-weight:700;
-}
-
-#chatBody{
-  height:260px;
-  overflow-y:auto;
-  padding:10px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.msg{
-  padding:8px 10px;
-  border-radius:8px;
-  font-size:14px;
-}
-
-.user{
-  background:#1e2633;
-  align-self:flex-end;
-}
-
-.bot{
-  background:rgba(245,197,66,0.15);
-  border:1px solid rgba(245,197,66,0.3);
-  align-self:flex-start;
-}
-
-#inputArea{
-  display:flex;
-  border-top:1px solid rgba(255,255,255,0.1);
-}
-
-#userInput{
-  flex:1;
-  padding:10px;
-  border:none;
-  outline:none;
-  background:#111;
   color:white;
-}
-
-#sendBtn{
-  background:#f5c542;
-  border:none;
-  padding:10px 14px;
-  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-content">
-    <h1>Building UAE’s Future <br><span>With Trust & Power</span></h1>
-
-    <a class="btn" onclick="scrollToChat()">Talk to AI Assistant</a>
+    <h1>Building UAE Future <br><span>With Strength</span></h1>
+    <div class="btn" onclick="scrollToChat()">Chat With AI</div>
   </div>
 </div>
 
-<!-- CONTACT SECTION -->
-<section>
-  <h2 style="color:#f5c542;">Royal Site Trading</h2>
-  <p>Premium Construction Materials Supplier in Abu Dhabi</p>
-</section>
+<!-- IMAGE GALLERY -->
+<div class="gallery">
+  <h2>Our Materials & Projects</h2>
 
-<!-- WHATSAPP -->
-<a class="whatsapp"
-   href="https://wa.me/971501234567"
-   target="_blank">
-   WhatsApp
-</a>
-
-<!-- AI CHAT BOX -->
-<div id="aiChat">
-  <div id="chatHeader">🤖 AI Business Assistant</div>
-
-  <div id="chatBody"></div>
-
-  <div id="inputArea">
-    <input id="userInput" placeholder="Ask about materials, prices..." />
-    <button id="sendBtn" onclick="sendMessage()">Send</button>
+  <div class="images">
+    <img src="https://images.unsplash.com/photo-1581091870627-3b5c7c8a0a9c">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
+    <img src="https://images.unsplash.com/photo-1565008576549-6f3b3c7b0c77">
   </div>
 </div>
+
+<!-- CHAT -->
+<div id="chatBox">
+  <div id="header">AI Assistant</div>
+
+  <div id="messages"></div>
+
+  <div id="input">
+    <input id="text" placeholder="Ask anything..." />
+    <button id="send" onclick="sendMsg()">Send</button>
+  </div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
 
 <script>
-
-/* scroll to chat */
 function scrollToChat(){
-  document.getElementById("aiChat").scrollIntoView({behavior:"smooth"});
+  document.getElementById("chatBox").scrollIntoView({behavior:"smooth"});
 }
 
-/* MESSAGE UI */
-function addMsg(text,type){
-  let chat=document.getElementById("chatBody");
+/* SEND TO BACKEND (REAL AI) */
+async function sendMsg(){
+  let input=document.getElementById("text");
+  let msg=input.value.trim();
+  if(!msg) return;
+
+  add(msg,"user");
+  input.value="";
+
+  add("Thinking...","bot");
+
+  const res = await fetch("http://localhost:3000/chat",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({message:msg})
+  });
+
+  const data = await res.json();
+
+  let chat=document.getElementById("messages");
+  chat.lastChild.remove();
+
+  add(data.reply,"bot");
+}
+
+function add(text,type){
   let div=document.createElement("div");
   div.className="msg "+type;
   div.innerText=text;
-  chat.appendChild(div);
-  chat.scrollTop=chat.scrollHeight;
+  document.getElementById("messages").appendChild(div);
 }
-
-/* REAL AI CALL (READY STRUCTURE) */
-async function getAIResponse(message){
-
-  // 👉 THIS IS WHERE REAL AI CONNECTS
-  // Replace this later with backend API call
-
-  const responses = {
-    "cement":"We supply premium UAE-certified cement 🏗",
-    "steel":"High-grade structural steel available 🔩",
-    "price":"Prices depend on quantity and project size 📦",
-    "delivery":"We provide fast delivery across UAE 🚚"
-  };
-
-  message = message.toLowerCase();
-
-  for(let key in responses){
-    if(message.includes(key)){
-      return responses[key];
-    }
-  }
-
-  return "Our AI assistant will connect you with a sales expert 📞";
-}
-
-/* SEND MESSAGE */
-async function sendMessage(){
-  let input=document.getElementById("userInput");
-  let text=input.value.trim();
-  if(!text) return;
-
-  addMsg(text,"user");
-  input.value="";
-
-  // typing delay (feels like real AI)
-  addMsg("Typing...","bot");
-
-  setTimeout(async ()=>{
-    let chat=document.getElementById("chatBody");
-    chat.lastChild.remove();
-
-    let reply = await getAIResponse(text);
-    addMsg(reply,"bot");
-  },900);
-}
-
 </script>
 
 </body>
