@@ -293,11 +293,37 @@ z-index:9999;
 from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
+#splash{
+position:fixed;
+inset:0;
+background:#070b14;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:99999;
+color:#d4af37;
+}
+
+#splash img{
+width:120px;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
 </style>
 </head>
 
 <body>
-
+<div id="splash">
+  <img src="logo.png" />
+  <h1>ROYAL SITE TRADING</h1>
+  <p>Loading...</p>
+</div>
 <nav>
 <div class="logo">
 <img src="logo.png" alt="Royal Site Trading Logo">
@@ -329,7 +355,7 @@ to{opacity:1;transform:translateY(0);}
 
 <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:30px;margin:20px 0;">
 
-<img src="logo.png" style="width:140px;height:140px;border-radius:16px;box-shadow:0 0 20px rgba(212,175,55,0.3);">
+
 
 <div style="max-width:600px;text-align:left;">
 <p>
@@ -527,7 +553,16 @@ letter-spacing:1px;
 ">
 Website designed and coded by Wania Saghir.
 </div>
+<script>
+setTimeout(()=>{
+  document.getElementById("splash").style.opacity="0";
 
+  setTimeout(()=>{
+    document.getElementById("splash").style.display="none";
+  },800);
+
+},5000);
+</script>
 </body>
 </html>
 </body>
