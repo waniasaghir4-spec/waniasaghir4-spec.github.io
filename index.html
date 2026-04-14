@@ -9,87 +9,115 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-body{background:#070b14;color:white;overflow-x:hidden;}
+body{background:#070b14;color:white;overflow-x:hidden;scroll-behavior:smooth;}
+
+/* LOADER */
+#loader{
+position:fixed;
+inset:0;
+background:#070b14;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:99999;
+font-size:22px;
+letter-spacing:2px;
+color:#d4af37;
+}
 
 /* NAV */
 nav{
 position:fixed;top:0;width:100%;
-padding:15px 40px;display:flex;justify-content:space-between;
-align-items:center;background:rgba(10,15,25,0.8);
+padding:15px 40px;
+display:flex;justify-content:space-between;
+align-items:center;
+background:rgba(10,15,25,0.8);
 backdrop-filter:blur(12px);
 z-index:1000;
+transition:0.3s;
 }
 
-.logo{display:flex;align-items:center;gap:10px;}
+nav.scrolled{
+background:rgba(10,15,25,0.95);
+}
+
+.logo{display:flex;gap:10px;align-items:center;}
 .logo img{width:42px;height:42px;border-radius:8px;}
 .logo h2{color:#d4af37;font-size:16px;}
 
-nav a{color:white;margin-left:15px;cursor:pointer;text-decoration:none;}
+nav a{color:white;margin-left:15px;cursor:pointer;}
 nav a:hover{color:#d4af37;}
 
-/* PAGE */
 .page{display:none;padding-top:90px;}
 .active{display:block;}
 
 /* HERO */
 .hero{
-height:100vh;display:flex;align-items:center;
-justify-content:center;text-align:center;
-position:relative;overflow:hidden;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
 }
 
 .hero-bg{
 position:absolute;inset:0;
 background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd") center/cover no-repeat;
+filter:brightness(0.6);
 z-index:-2;
-filter:brightness(0.7);
-transform:scale(1.05);
 }
 
 .hero-overlay{
 position:absolute;inset:0;
-background:linear-gradient(to bottom,rgba(0,0,0,0.5),#070b14);
+background:linear-gradient(to bottom,transparent,#070b14);
 z-index:-1;
 }
 
-.hero-content{animation:fadeUp 1s ease;}
+.hero-content{
+animation:fadeUp 1s ease;
+}
 
 .hero h1{
-font-size:clamp(30px,5vw,56px);
-line-height:1.2;
+font-size:clamp(30px,5vw,60px);
 }
 
 .hero span{color:#d4af37;}
 
-/* BUTTON PREMIUM */
 .btn{
-margin-top:25px;padding:14px 32px;
+margin-top:25px;
+padding:14px 30px;
 background:linear-gradient(135deg,#d4af37,#f7d774);
-color:black;font-weight:700;
-border-radius:12px;cursor:pointer;
+color:black;
+font-weight:700;
+border-radius:12px;
+cursor:pointer;
 transition:0.3s;
-box-shadow:0 0 15px rgba(212,175,55,0.4);
+box-shadow:0 0 15px rgba(212,175,55,0.5);
 }
 
 .btn:hover{
-transform:translateY(-3px);
-box-shadow:0 0 25px rgba(212,175,55,0.8);
+transform:translateY(-4px);
+box-shadow:0 0 30px rgba(212,175,55,0.9);
 }
 
 /* SECTIONS */
 section{
 padding:100px 10%;
-text-align:center;
 max-width:1200px;
 margin:auto;
-animation:fadeUp 1s ease;
+opacity:0;
+transform:translateY(40px);
+transition:0.6s;
 }
 
-h2{
-color:#d4af37;
-margin-bottom:20px;
-font-size:28px;
+section.show{
+opacity:1;
+transform:translateY(0);
 }
+
+h2{color:#d4af37;margin-bottom:20px;}
 
 /* CARDS */
 .cards{
@@ -103,13 +131,12 @@ background:rgba(255,255,255,0.05);
 padding:25px;
 border-radius:16px;
 border:1px solid rgba(212,175,55,0.2);
-backdrop-filter:blur(8px);
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-5px) scale(1.02);
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+transform:translateY(-6px);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* PROJECTS */
@@ -119,14 +146,10 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-.project{
-border-radius:12px;
-overflow:hidden;
-transition:0.4s;
-}
-
 .project img{
-width:100%;height:200px;object-fit:cover;
+width:100%;
+height:200px;
+object-fit:cover;
 transition:0.4s;
 }
 
@@ -134,52 +157,65 @@ transition:0.4s;
 transform:scale(1.1);
 }
 
-.project-text{
-padding:12px;text-align:left;
-}
-
 /* OWNER */
 .owner-box{
-max-width:700px;margin:auto;
+max-width:700px;
+margin:auto;
+padding:30px;
+border-radius:16px;
 background:rgba(255,255,255,0.05);
-padding:30px;border-radius:16px;
 border:1px solid rgba(212,175,55,0.2);
+}
+
+/* FLOATING GLOW */
+.glow{
+position:absolute;
+width:300px;height:300px;
+background:#d4af37;
+filter:blur(120px);
+opacity:0.15;
+top:20%;
+left:10%;
 }
 
 /* WHATSAPP */
 .whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;padding:14px;
-border-radius:50px;color:white;text-decoration:none;
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:14px;
+border-radius:50px;
+color:white;
 }
 
 /* CHAT */
 #chatBtn{
-position:fixed;right:20px;bottom:90px;
-background:#d4af37;color:black;
-padding:12px 16px;border-radius:50px;
-font-weight:700;cursor:pointer;
+position:fixed;
+right:20px;
+bottom:90px;
+background:#d4af37;
+color:black;
+padding:12px;
+border-radius:50px;
+cursor:pointer;
 }
 
 #chatBox{
-position:fixed;right:20px;bottom:150px;
-width:320px;background:#0b0f14;
-border:1px solid #d4af37;border-radius:12px;
-display:none;z-index:9999;
+position:fixed;
+right:20px;
+bottom:150px;
+width:320px;
+background:#0b0f14;
+border:1px solid #d4af37;
+display:none;
 }
 
-#header{background:#d4af37;color:black;padding:10px;}
-#body{height:220px;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px;}
+#body{height:200px;overflow:auto;padding:10px;}
+.msg{padding:6px;margin:5px 0;}
+.user{background:#1c2433;}
+.bot{background:#222;}
 
-.msg{padding:8px;border-radius:8px;}
-.user{background:#1c2433;align-self:flex-end;}
-.bot{background:rgba(212,175,55,0.15);}
-
-#inputBox{display:flex;}
-#input{flex:1;padding:10px;background:#111;color:white;border:none;}
-#send{background:#d4af37;border:none;padding:10px;cursor:pointer;}
-
-/* ANIMATION */
 @keyframes fadeUp{
 from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
@@ -189,7 +225,9 @@ to{opacity:1;transform:translateY(0);}
 
 <body>
 
-<nav>
+<div id="loader">ROYAL SITE TRADING</div>
+
+<nav id="nav">
 <div class="logo">
 <img src="logo.png">
 <h2>ROYAL SITE TRADING</h2>
@@ -199,6 +237,8 @@ to{opacity:1;transform:translateY(0);}
 <a onclick="showOwner()">Owner</a>
 </div>
 </nav>
+
+<div class="glow"></div>
 
 <div id="home" class="page active">
 
@@ -214,44 +254,23 @@ to{opacity:1;transform:translateY(0);}
 
 <section id="about">
 <h2>About Us</h2>
-<p>Trusted supplier of construction materials across UAE delivering quality, speed and reliability.</p>
+<p>Premium construction supplier delivering excellence across UAE.</p>
+</section>
 
+<section>
+<h2>Services</h2>
 <div class="cards">
-<div class="card">🏗 Construction Supply</div>
-<div class="card">🔩 Steel Materials</div>
-<div class="card">🚚 Fast Delivery</div>
-<div class="card">📦 Bulk Orders</div>
+<div class="card">Steel Supply</div>
+<div class="card">Construction Materials</div>
+<div class="card">Fast Delivery</div>
 </div>
 </section>
 
 <section>
-<h2>Our Projects</h2>
+<h2>Projects</h2>
 <div class="projects">
-
-<div class="project">
 <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-<div class="project-text">
-<h3>High-Rise Buildings</h3>
-<p>Skyscraper supply projects</p>
-</div>
-</div>
-
-<div class="project">
 <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
-<div class="project-text">
-<h3>Infrastructure</h3>
-<p>Road & highway projects</p>
-</div>
-</div>
-
-<div class="project">
-<img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c">
-<div class="project-text">
-<h3>Residential</h3>
-<p>Modern housing developments</p>
-</div>
-</div>
-
 </div>
 </section>
 
@@ -259,67 +278,70 @@ to{opacity:1;transform:translateY(0);}
 
 <div id="owner" class="page">
 <section>
-<h2>Meet the Owner</h2>
-<div class="owner-box">
-<img src="https://via.placeholder.com/150">
-<h3>Owner Name</h3>
-<p>Add your story here.</p>
-</div>
+<h2>Owner</h2>
+<div class="owner-box">Add details here</div>
 </section>
 </div>
 
-<a class="whatsapp" href="https://wa.me/971501234567">WhatsApp</a>
+<a class="whatsapp" href="#">WhatsApp</a>
 
-<div id="chatBtn" onclick="toggleChat()">AI Chat</div>
-
+<div id="chatBtn" onclick="toggleChat()">Chat</div>
 <div id="chatBox">
-<div id="header">AI Assistant</div>
 <div id="body"></div>
-<div id="inputBox">
-<input id="input" placeholder="Ask something..." />
-<button id="send" onclick="send()">Send</button>
-</div>
+<input id="input"><button onclick="send()">Send</button>
 </div>
 
 <script>
-function scrollToAbout(){
-document.getElementById("about").scrollIntoView({behavior:"smooth"});
-}
 
+/* LOADER */
+window.onload = () => {
+document.getElementById("loader").style.display="none";
+};
+
+/* NAV SCROLL */
+window.addEventListener("scroll",()=>{
+document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50);
+});
+
+/* SCROLL ANIMATION */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+const top = sec.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+sec.classList.add("show");
+}
+});
+});
+
+/* NAV */
 function showHome(){
-document.getElementById("owner").classList.remove("active");
-document.getElementById("home").classList.add("active");
+home.classList.add("active");
+owner.classList.remove("active");
 }
 
 function showOwner(){
-document.getElementById("home").classList.remove("active");
-document.getElementById("owner").classList.add("active");
+owner.classList.add("active");
+home.classList.remove("active");
 }
 
+/* CHAT */
 function toggleChat(){
-let box=document.getElementById("chatBox");
-box.style.display = box.style.display==="block" ? "none" : "block";
+chatBox.style.display = chatBox.style.display==="block"?"none":"block";
 }
 
 function send(){
-let input=document.getElementById("input");
-let text=input.value.trim();
-if(!text) return;
+let msg=input.value;
+if(!msg) return;
 
-let div=document.createElement("div");
-div.className="msg user";
-div.innerText=text;
-document.getElementById("body").appendChild(div);
-
+body.innerHTML+=`<div class="msg user">${msg}</div>`;
 input.value="";
 
 setTimeout(()=>{
-let bot=document.createElement("div");
-bot.className="msg bot";
-bot.innerText="We will contact you shortly 📞";
-document.getElementById("body").appendChild(bot);
-},600);
+body.innerHTML+=`<div class="msg bot">We will assist you shortly.</div>`;
+},500);
 }
+
 </script>
 
 </body>
