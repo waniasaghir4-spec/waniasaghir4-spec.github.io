@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Royal Site Trading</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --bg:#05080c;
-  --gold:#d4af37;
-  --text:#ffffff;
-  --muted:rgba(255,255,255,0.7);
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Montserrat, sans-serif;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-  font-family:Segoe UI, sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  background:#05080c;
+  color:white;
+  overflow-x:hidden;
 }
 
 /* NAV */
@@ -30,27 +30,26 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:18px 50px;
-  background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(12px);
-  z-index:1000;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  z-index:999;
 }
 
-.brand{
+.logo{
   display:flex;
   align-items:center;
   gap:12px;
 }
 
-.brand img{
-  width:42px;
-  height:42px;
-  object-fit:contain;
+.logo img{
+  width:45px;
+  height:45px;
 }
 
-nav h2{
-  color:var(--gold);
+.logo h2{
+  color:#d4af37;
   font-size:18px;
-  letter-spacing:1px;
+  letter-spacing:2px;
 }
 
 /* HERO */
@@ -62,80 +61,169 @@ nav h2{
   text-align:center;
   padding:0 20px;
   background:
-    radial-gradient(circle at top, rgba(212,175,55,0.08), transparent 60%);
+    radial-gradient(circle at top, rgba(212,175,55,0.12), transparent 55%),
+    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd') center/cover no-repeat;
+  position:relative;
+}
+
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.65);
 }
 
 .hero-content{
-  max-width:800px;
+  position:relative;
+  max-width:900px;
 }
 
 .hero h1{
-  font-size:clamp(36px,5vw,64px);
+  font-size:56px;
   line-height:1.1;
 }
 
 .hero span{
-  color:var(--gold);
+  color:#d4af37;
 }
 
 .hero p{
-  margin-top:15px;
-  color:var(--muted);
+  margin-top:18px;
+  opacity:0.85;
   font-size:18px;
+  line-height:1.6;
 }
 
-/* BUTTON */
 .btn{
-  margin-top:25px;
+  margin-top:30px;
   display:inline-block;
-  padding:14px 30px;
+  padding:15px 32px;
   background:linear-gradient(45deg,#d4af37,#f7d774);
-  color:#000;
-  font-weight:bold;
-  border-radius:12px;
+  color:black;
+  font-weight:700;
+  border-radius:10px;
   text-decoration:none;
   transition:0.3s;
 }
 
 .btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.07);
 }
 
 /* SECTIONS */
 section{
   padding:90px 10%;
+  text-align:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
 }
 
-.title{
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  font-size:30px;
+  color:#d4af37;
+  margin-bottom:20px;
+}
+
+.subtext{
+  max-width:800px;
+  margin:0 auto 40px;
+  opacity:0.75;
+  line-height:1.6;
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.stat-box{
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:12px;
+  width:180px;
+  border:1px solid rgba(212,175,55,0.2);
+}
+
+.stat-box h3{
   font-size:28px;
-  color:var(--gold);
-  margin-bottom:30px;
+  color:#d4af37;
 }
 
-/* GRID CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+/* CARDS */
+.cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
   gap:20px;
 }
 
 .card{
+  width:260px;
   padding:25px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(212,175,55,0.12);
-  border-radius:14px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(212,175,55,0.15);
+  border-radius:12px;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(212,175,55,0.4);
+  transform:translateY(-10px);
+  border-color:#d4af37;
+  box-shadow:0 0 25px rgba(212,175,55,0.2);
+}
+
+/* PROJECTS */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.project{
+  height:180px;
+  border-radius:12px;
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  border:1px solid rgba(212,175,55,0.2);
+}
+
+/* CLIENTS */
+.clients{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.client{
+  width:120px;
+  height:80px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(212,175,55,0.15);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  opacity:0.8;
 }
 
 /* CONTACT */
 .contact{
-  text-align:center;
-  color:var(--muted);
+  background:#0a0f16;
 }
 
 /* WHATSAPP */
@@ -146,9 +234,10 @@ section{
   background:#25D366;
   padding:14px 18px;
   border-radius:50px;
+  color:white;
   text-decoration:none;
-  color:#fff;
   font-weight:bold;
+  z-index:999;
 }
 </style>
 </head>
@@ -156,47 +245,129 @@ section{
 <body>
 
 <nav>
-  <div class="brand">
+  <div class="logo">
     <img src="logo.png">
-    <h2>Royal Site Trading</h2>
+    <h2>ROYAL SITE TRADING</h2>
   </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-content">
-    <h1>Premium Construction Supply <br><span>Built for UAE Mega Projects</span></h1>
-    <p>Delivering high-quality construction materials with speed, trust, and excellence across Abu Dhabi.</p>
-    <a class="btn" href="#services">Explore Services</a>
+    <h1>Building UAE’s Future <br><span>With Strength & Trust</span></h1>
+    <p>
+      Premium supplier of construction materials across Abu Dhabi.
+      Supporting infrastructure, residential, and mega-scale UAE projects.
+    </p>
+    <a class="btn" href="#about">Discover More</a>
   </div>
 </div>
 
-<section id="services">
-  <h2 class="title">Our Services</h2>
-  <div class="grid">
-    <div class="card">🏗 Construction Materials Supply</div>
-    <div class="card">🛠 Hardware Tools Distribution</div>
-    <div class="card">🚚 Fast UAE Delivery Network</div>
+<!-- ABOUT / STATS -->
+<section id="about">
+  <h2>ABOUT US</h2>
+  <p class="subtext">
+    We are a trusted construction materials supplier providing high-quality steel, cement,
+    electrical, plumbing, and hardware solutions for major UAE developments.
+  </p>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h3>500+</h3>
+      <p>Projects Supplied</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>10+</h3>
+      <p>Years Experience</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>200+</h3>
+      <p>Contractors Served</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <h2>OUR SERVICES</h2>
+  <div class="cards">
+    <div class="card">🏗 Construction Supply Solutions</div>
+    <div class="card">🔩 Steel & Industrial Materials</div>
+    <div class="card">🚚 UAE Logistics & Delivery</div>
     <div class="card">📦 Bulk Project Supply</div>
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section>
-  <h2 class="title">Products</h2>
-  <div class="grid">
-    <div class="card">🧱 Cement & Blocks</div>
-    <div class="card">🔩 Steel & Iron</div>
-    <div class="card">⚡ Electrical Items</div>
-    <div class="card">🚿 Plumbing Materials</div>
+  <h2>OUR PROJECTS</h2>
+  <p class="subtext">A glimpse of infrastructure and construction projects we have supported across the UAE.</p>
+
+  <div class="projects">
+    <div class="project">High-rise Buildings</div>
+    <div class="project">Road Infrastructure</div>
+    <div class="project">Residential Complexes</div>
+    <div class="project">Industrial Projects</div>
   </div>
 </section>
 
-<section class="contact">
-  <h2 class="title">Contact</h2>
-  <p>📍 Abu Dhabi, UAE</p>
-  <p>📞 +971XXXXXXXXX</p>
+<!-- PRODUCTS -->
+<section>
+  <h2>PRODUCT RANGE</h2>
+  <div class="cards">
+    <div class="card">🧱 Cement & Blocks</div>
+    <div class="card">⚡ Electrical Systems</div>
+    <div class="card">🚿 Plumbing Solutions</div>
+    <div class="card">🏗 Hardware Tools</div>
+  </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/971XXXXXXXXX">WhatsApp</a>
+<!-- CLIENTS -->
+<section>
+  <h2>OUR CLIENTS</h2>
+  <p class="subtext">Trusted by contractors, builders, and engineering companies across UAE.</p>
+
+  <div class="clients">
+    <div class="client">Client A</div>
+    <div class="client">Client B</div>
+    <div class="client">Client C</div>
+    <div class="client">Client D</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>CONTACT US</h2>
+  <p class="subtext">
+    Get in touch for quotations, bulk orders, and long-term supply partnerships.
+  </p>
+
+  <p>📍 Abu Dhabi, UAE</p>
+  <p>📞 +971XXXXXXXXX</p>
+  <p>📩 Available 24/7 for project inquiries</p>
+</section>
+
+<a class="whatsapp" href="https://wa.me/971XXXXXXXXX">
+  WhatsApp
+</a>
+
+<script>
+// scroll animation
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = window.scrollY;
+    const offset = sec.offsetTop - 500;
+
+    if(top > offset){
+      sec.classList.add("show");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
