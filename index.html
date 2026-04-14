@@ -8,7 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins;
+}
 
 body{
   background:#070b14;
@@ -29,11 +34,10 @@ nav{
   z-index:1000;
 }
 
-/* LOGO FIXED */
 .logo{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
 }
 
 .logo img{
@@ -46,6 +50,19 @@ nav{
   color:#d4af37;
   font-size:16px;
   letter-spacing:2px;
+}
+
+/* NAV LINKS */
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:15px;
+  opacity:0.8;
+}
+
+nav a:hover{
+  color:#d4af37;
+  opacity:1;
 }
 
 /* HERO */
@@ -115,47 +132,43 @@ h2{
   border:1px solid rgba(212,175,55,0.2);
 }
 
-/* PROJECTS UPGRADED */
-.projects{
+/* PROJECTS */
+.images{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
 }
 
-.project{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(212,175,55,0.2);
-  border-radius:12px;
-  overflow:hidden;
-  transition:0.3s;
-}
-
-.project:hover{
-  transform:translateY(-6px);
-  border-color:#d4af37;
-}
-
-.project img{
+.images img{
   width:100%;
-  height:160px;
+  height:200px;
   object-fit:cover;
+  border-radius:12px;
 }
 
-.project-content{
-  padding:15px;
-  text-align:left;
+/* OWNER PAGE */
+#ownerPage{
+  display:none;
+  padding-top:120px;
 }
 
-.project-content h3{
-  color:#d4af37;
-  margin-bottom:6px;
-  font-size:16px;
+.owner-box{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+  background:rgba(255,255,255,0.04);
+  padding:30px;
+  border-radius:12px;
+  border:1px solid rgba(212,175,55,0.2);
 }
 
-.project-content p{
-  font-size:13px;
-  opacity:0.8;
-  line-height:1.4;
+.owner-box img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #d4af37;
+  margin-bottom:20px;
 }
 
 /* WHATSAPP */
@@ -170,31 +183,8 @@ h2{
   text-decoration:none;
   font-weight:700;
 }
-  /* OWNER PAGE */
-#ownerPage{
-  display:none;
-  min-height:100vh;
-  padding-top:120px;
-}
-.owner-box{
-  max-width:900px;
-  margin:auto;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(212,175,55,0.2);
-  padding:30px;
-  border-radius:14px;
-  text-align:center;
-}
-.owner-box img{
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  object-fit:cover;
-  border:3px solid #d4af37;
-  margin-bottom:20px;
-}
 
-/* CHAT BUTTON */
+/* CHAT */
 #chatBtn{
   position:fixed;
   right:20px;
@@ -207,7 +197,6 @@ h2{
   cursor:pointer;
 }
 
-/* CHAT BOX */
 #chatBox{
   position:fixed;
   right:20px;
@@ -252,81 +241,83 @@ h2{
 <!-- NAV -->
 <nav>
   <div class="logo">
-    <!-- YOUR LOGO RESTORED -->
-    <img src="logo.png" alt="logo">
+    <img src="logo.png">
     <h2>ROYAL SITE TRADING</h2>
+  </div>
+
+  <div>
+    <a href="#" onclick="showHome()">Home</a>
+    <a href="#" onclick="showOwner()">Owner</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
-    <div class="btn" onclick="scrollToProjects()">Discover More</div>
+<!-- HOME PAGE -->
+<div id="homePage">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
+      <div class="btn" onclick="scrollToAbout()">Discover More</div>
+    </div>
   </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Premium supplier of construction materials across UAE.</p>
+
+    <div class="cards">
+      <div class="card">Steel Supply</div>
+      <div class="card">Cement Supply</div>
+      <div class="card">Fast Delivery</div>
+      <div class="card">Trusted Contractors</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <h2>Our Projects</h2>
+
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80">
+    </div>
+  </section>
+
 </div>
 
-<!-- ABOUT -->
-<section>
-  <h2>About Us</h2>
-  <p>Premium supplier of construction materials across UAE mega projects.</p>
+<!-- OWNER PAGE (NEW ONLY ADDED PART) -->
+<div id="ownerPage">
 
-  <div class="cards">
-    <div class="card">Steel & Cement Supply</div>
-    <div class="card">Fast UAE Delivery</div>
-    <div class="card">Trusted Contractors</div>
-    <div class="card">10+ Years Experience</div>
-  </div>
-</section>
+  <section>
+    <h2>Meet the Owner</h2>
 
-<!-- PROJECTS (UPGRADED) -->
-<section id="projects">
-  <h2>Our Projects</h2>
+    <div class="owner-box">
 
-  <div class="projects">
+      <!-- YOU ADD IMAGE HERE -->
+      <img src="https://via.placeholder.com/160">
 
-    <div class="project">
-      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80">
-      <div class="project-content">
-        <h3>High-Rise Buildings</h3>
-        <p>Supplying steel and structural materials for major skyscraper developments across UAE.</p>
-      </div>
+      <!-- YOU EDIT TEXT HERE -->
+      <h3>Owner Name</h3>
+      <p>
+        Add your owner introduction here.<br><br>
+        Experience, vision, story, achievements, etc.
+      </p>
+
     </div>
+  </section>
 
-    <div class="project">
-      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80">
-      <div class="project-content">
-        <h3>Road Infrastructure</h3>
-        <p>Providing durable construction materials for highways and road expansion projects.</p>
-      </div>
-    </div>
-
-    <div class="project">
-      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80">
-      <div class="project-content">
-        <h3>Residential Complexes</h3>
-        <p>Supplying full material packages for modern residential communities.</p>
-      </div>
-    </div>
-
-    <div class="project">
-      <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80">
-      <div class="project-content">
-        <h3>Industrial Projects</h3>
-        <p>Heavy-duty industrial supply solutions for factories and warehouses.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
+</div>
 
 <!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
 
-<!-- CHAT BUTTON -->
+<!-- CHAT -->
 <div id="chatBtn" onclick="toggleChat()">AI Chat</div>
 
-<!-- CHAT BOX -->
 <div id="chatBox">
   <div id="header">AI Assistant</div>
 
@@ -340,8 +331,18 @@ h2{
 
 <script>
 
-function scrollToProjects(){
-  document.getElementById("projects").scrollIntoView({behavior:"smooth"});
+function showOwner(){
+  document.getElementById("homePage").style.display="none";
+  document.getElementById("ownerPage").style.display="block";
+}
+
+function showHome(){
+  document.getElementById("homePage").style.display="block";
+  document.getElementById("ownerPage").style.display="none";
+}
+
+function scrollToAbout(){
+  document.getElementById("about").scrollIntoView({behavior:"smooth"});
 }
 
 function toggleChat(){
