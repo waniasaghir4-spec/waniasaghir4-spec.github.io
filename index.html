@@ -6,6 +6,7 @@
 <title>Royal Site Trading</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
@@ -39,26 +40,20 @@ border-bottom:1px solid rgba(212,175,55,0.2);
 z-index:1000;
 }
 
-.logo{
-display:flex;
-align-items:center;
-gap:14px;
-}
-
 .logo img{
-width:52px;
-height:52px;
+width:70px;
+height:70px;
 border-radius:12px;
-border:2px solid rgba(212,175,55,0.4);
 }
 
 .logo h2{
-color:#d4af37;
-font-size:18px;
-font-weight:700;
-letter-spacing:1.5px;
-text-transform:uppercase;
-text-shadow:0 0 12px rgba(212,175,55,0.25);
+font-size:22px;
+letter-spacing:1px;
+}
+
+.logo{
+gap:14px;
+align-items:center;
 }
 
 nav div a{
@@ -285,6 +280,9 @@ z-index:9999;
 from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
+  nav div a i{
+margin-right:6px;
+}
 </style>
 </head>
 
@@ -296,8 +294,13 @@ to{opacity:1;transform:translateY(0);}
 <h2>ROYAL SITE TRADING</h2>
 </div>
 <div>
-<a onclick="showHome()">Home</a>
-<a onclick="showOwner()">Owner</a>
+<a onclick="showHome()">
+<i class="fa-solid fa-house"></i> Home
+</a>
+
+<a onclick="showOwner()">
+<i class="fa-solid fa-user"></i> Owner
+</a>
 </div>
 </nav>
 
@@ -314,7 +317,11 @@ to{opacity:1;transform:translateY(0);}
 
 <section id="about">
 <h2>About Us</h2>
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:30px;margin:20px 0;">
 
+<img src="logo.png" style="width:140px;height:140px;border-radius:16px;box-shadow:0 0 20px rgba(212,175,55,0.3);">
+
+<div style="max-width:600px;text-align:left;">
 <p>
 Royal Site Trading is a trusted supplier of construction materials across the UAE, 
 delivering unmatched quality, reliability, and efficiency to every project we serve. 
@@ -340,6 +347,8 @@ in the competitive construction market.
 <div class="card">⚡ Quick Response & Customer Support</div>
 <div class="card">🌍 Supporting UAE Infrastructure Growth</div>
 <div class="card">💼 Professional & Experienced Team</div>
+</div>
+  </div>
 </div>
 </section>
 
