@@ -29,10 +29,11 @@ nav{
   z-index:1000;
 }
 
+/* LOGO FIXED */
 .logo{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
 }
 
 .logo img{
@@ -45,18 +46,6 @@ nav{
   color:#d4af37;
   font-size:16px;
   letter-spacing:2px;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:15px;
-  opacity:0.8;
-}
-
-nav a:hover{
-  color:#d4af37;
-  opacity:1;
 }
 
 /* HERO */
@@ -126,36 +115,47 @@ h2{
   border:1px solid rgba(212,175,55,0.2);
 }
 
-/* PROJECTS */
-.projects img{
-  width:100%;
-  border-radius:12px;
+/* PROJECTS UPGRADED */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
 }
 
-/* OWNER PAGE */
-#ownerPage{
-  display:none;
-  min-height:100vh;
-  padding-top:120px;
-}
-
-.owner-box{
-  max-width:900px;
-  margin:auto;
+.project{
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(212,175,55,0.2);
-  padding:30px;
-  border-radius:14px;
-  text-align:center;
+  border-radius:12px;
+  overflow:hidden;
+  transition:0.3s;
 }
 
-.owner-box img{
-  width:160px;
+.project:hover{
+  transform:translateY(-6px);
+  border-color:#d4af37;
+}
+
+.project img{
+  width:100%;
   height:160px;
-  border-radius:50%;
   object-fit:cover;
-  border:3px solid #d4af37;
-  margin-bottom:20px;
+}
+
+.project-content{
+  padding:15px;
+  text-align:left;
+}
+
+.project-content h3{
+  color:#d4af37;
+  margin-bottom:6px;
+  font-size:16px;
+}
+
+.project-content p{
+  font-size:13px;
+  opacity:0.8;
+  line-height:1.4;
 }
 
 /* WHATSAPP */
@@ -169,6 +169,29 @@ h2{
   color:white;
   text-decoration:none;
   font-weight:700;
+}
+  /* OWNER PAGE */
+#ownerPage{
+  display:none;
+  min-height:100vh;
+  padding-top:120px;
+}
+.owner-box{
+  max-width:900px;
+  margin:auto;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(212,175,55,0.2);
+  padding:30px;
+  border-radius:14px;
+  text-align:center;
+}
+.owner-box img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #d4af37;
+  margin-bottom:20px;
 }
 
 /* CHAT BUTTON */
@@ -229,71 +252,81 @@ h2{
 <!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="logo.png">
+    <!-- YOUR LOGO RESTORED -->
+    <img src="logo.png" alt="logo">
     <h2>ROYAL SITE TRADING</h2>
-  </div>
-
-  <div>
-    <a href="#" onclick="showHome()">Home</a>
-    <a href="#" onclick="showOwner()">Owner</a>
   </div>
 </nav>
 
-<!-- HOME -->
-<div id="homePage">
-
-  <div class="hero">
-    <div class="hero-content">
-      <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
-      <div class="btn" onclick="scrollToProjects()">Discover More</div>
-    </div>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
+    <div class="btn" onclick="scrollToProjects()">Discover More</div>
   </div>
-
-  <section>
-    <h2>About Us</h2>
-    <p>Premium supplier of construction materials across UAE.</p>
-
-    <div class="cards">
-      <div class="card">Steel Supply</div>
-      <div class="card">Cement Supply</div>
-      <div class="card">Fast Delivery</div>
-      <div class="card">Trusted Contractors</div>
-    </div>
-  </section>
-
 </div>
 
-<!-- OWNER PAGE (PLACEHOLDER FOR YOU) -->
-<div id="ownerPage">
+<!-- ABOUT -->
+<section>
+  <h2>About Us</h2>
+  <p>Premium supplier of construction materials across UAE mega projects.</p>
 
-  <section>
-    <h2>Meet the Owner</h2>
+  <div class="cards">
+    <div class="card">Steel & Cement Supply</div>
+    <div class="card">Fast UAE Delivery</div>
+    <div class="card">Trusted Contractors</div>
+    <div class="card">10+ Years Experience</div>
+  </div>
+</section>
 
-    <div class="owner-box">
+<!-- PROJECTS (UPGRADED) -->
+<section id="projects">
+  <h2>Our Projects</h2>
 
-      <!-- 🔴 YOU WILL ADD IMAGE HERE -->
-      <img src="https://via.placeholder.com/160" alt="Owner Image">
+  <div class="projects">
 
-      <!-- 🔴 YOU WILL EDIT TEXT BELOW -->
-      <h3>Owner Name Here</h3>
-
-      <p>
-        👉 Write your owner introduction here<br><br>
-        Example: Founder of Royal Site Trading with 10+ years experience in UAE construction industry.<br>
-        Add achievements, vision, story, etc.
-      </p>
-
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80">
+      <div class="project-content">
+        <h3>High-Rise Buildings</h3>
+        <p>Supplying steel and structural materials for major skyscraper developments across UAE.</p>
+      </div>
     </div>
-  </section>
 
-</div>
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80">
+      <div class="project-content">
+        <h3>Road Infrastructure</h3>
+        <p>Providing durable construction materials for highways and road expansion projects.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80">
+      <div class="project-content">
+        <h3>Residential Complexes</h3>
+        <p>Supplying full material packages for modern residential communities.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80">
+      <div class="project-content">
+        <h3>Industrial Projects</h3>
+        <p>Heavy-duty industrial supply solutions for factories and warehouses.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
 
-<!-- CHAT -->
+<!-- CHAT BUTTON -->
 <div id="chatBtn" onclick="toggleChat()">AI Chat</div>
 
+<!-- CHAT BOX -->
 <div id="chatBox">
   <div id="header">AI Assistant</div>
 
@@ -307,18 +340,8 @@ h2{
 
 <script>
 
-function showOwner(){
-  document.getElementById("homePage").style.display="none";
-  document.getElementById("ownerPage").style.display="block";
-}
-
-function showHome(){
-  document.getElementById("homePage").style.display="block";
-  document.getElementById("ownerPage").style.display="none";
-}
-
 function scrollToProjects(){
-  window.scrollTo({top:500, behavior:"smooth"});
+  document.getElementById("projects").scrollIntoView({behavior:"smooth"});
 }
 
 function toggleChat(){
@@ -335,7 +358,7 @@ function send(){
   input.value="";
 
   setTimeout(()=>{
-    add("We will assist you shortly 📞","bot");
+    add("We will contact you shortly 📞","bot");
   },600);
 }
 
