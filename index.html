@@ -90,6 +90,17 @@ text-align:center;
 max-width:1200px;
 margin:auto;
 animation:fadeUp 1s ease;
+position:relative;
+}
+
+section::before{
+content:"";
+position:absolute;
+top:0;
+left:10%;
+right:10%;
+height:1px;
+background:linear-gradient(to right, transparent, rgba(212,175,55,0.3), transparent);
 }
 
 h2{
@@ -241,7 +252,7 @@ in the competitive construction market.
 </div>
 </section>
 
-<section>
+<section style="margin-top:40px;">
 <h2>Our Projects</h2>
 
 <p style="max-width:800px;margin:auto;margin-bottom:30px;">
@@ -371,8 +382,19 @@ cursor:pointer;">
 <input id="input" placeholder="Ask something..." />
 <button id="send" onclick="send()">Send</button>
 </div>
-</div>
 
+</div>
+<!-- FOOTER CREDIT -->
+<div style="
+text-align:center;
+padding:20px;
+font-size:13px;
+opacity:0.6;
+color:#d4af37;
+letter-spacing:1px;
+">
+Website designed and coded by Wania Saghir.
+</div>
 <script>
 function scrollToAbout(){
 document.getElementById("about").scrollIntoView({behavior:"smooth"});
@@ -420,16 +442,5 @@ alert("Thanks " + name + "! We will contact you within 24 hours 📞");
 document.querySelector("form").reset();
 }
 </script>
-<!-- FOOTER CREDIT -->
-<div style="
-text-align:center;
-padding:20px;
-font-size:13px;
-opacity:0.6;
-color:#d4af37;
-letter-spacing:1px;
-">
-Website designed and coded by Wania Saghir.
-</div>
 </body>
 </html>
