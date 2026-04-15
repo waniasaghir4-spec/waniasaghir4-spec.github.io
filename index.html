@@ -16,21 +16,9 @@ background:#070b14;
 color:white;
 overflow-x:hidden;
 position:relative;
-
-background-image:
-radial-gradient(circle at 20% 20%, rgba(212,175,55,0.18), transparent 45%),
-radial-gradient(circle at 80% 80%, rgba(0,180,255,0.12), transparent 50%),
-linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-
-background-size:
-100% 100%,
-100% 100%,
-40px 40px,
-40px 40px;
-
-animation: moveBg 18s linear infinite;
+background-attachment: fixed;
 }
+
 
 body::before{
 content:"";
@@ -46,6 +34,7 @@ z-index:0;
 nav{
 position:fixed;
 top:0;
+left:0;
 width:100%;
 padding:14px 50px;
 display:flex;
