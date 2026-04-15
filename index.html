@@ -354,17 +354,21 @@ filter: drop-shadow(0 0 15px rgba(212,175,55,0.6));
 }
   .gold-glow{
 position:relative;
+overflow:hidden;
 }
 
 .gold-glow::before{
 content:"";
 position:absolute;
-inset:0;
-background:radial-gradient(circle at left top, rgba(212,175,55,0.15), transparent 60%);
+inset:-20%;
+background:
+radial-gradient(circle at 20% 20%, rgba(212,175,55,0.18), transparent 60%),
+radial-gradient(circle at 80% 80%, rgba(212,175,55,0.10), transparent 60%);
 pointer-events:none;
 z-index:0;
 }
-  .gold-glow > *{
+
+.gold-glow > *{
 position:relative;
 z-index:1;
 }
@@ -409,7 +413,7 @@ Trusted supplier of construction materials across the UAE.
 </div>
 </div>
 
-<section id="about">
+<section id="about" class="gold-glow">
 <div style="display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:25px;">
   <img src="logo.png" style="width:60px;height:60px;border-radius:12px;">
   <h2 style="margin:0;">About Us</h2>
