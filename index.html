@@ -111,9 +111,11 @@ overflow:hidden;
 .hero-bg{
 position:absolute;
 inset:0;
-background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd") center/cover no-repeat;
+background:
+linear-gradient(rgba(7,11,20,0.7), rgba(7,11,20,0.9)),
+url("https://images.unsplash.com/photo-1504307651254-35680f356dfd") center/cover no-repeat;
 z-index:-2;
-filter:brightness(0.7);
+opacity:0.8;
 transform:scale(1.05);
 }
 
@@ -318,8 +320,9 @@ color:#d4af37;
 }
 
 #splash img{
-width:120px;
+width:180px;
 animation:pulse 1.5s infinite;
+filter: drop-shadow(0 0 15px rgba(212,175,55,0.6));
 }
 
 @keyframes pulse{
