@@ -192,10 +192,6 @@ border-radius:16px;
 border:1px solid rgba(212,175,55,0.2);
 backdrop-filter:blur(8px);
 transition:0.3s;
-}
-
-.card{
-transition:0.3s;
 cursor:pointer;
 }
 
@@ -356,6 +352,22 @@ filter: drop-shadow(0 0 15px rgba(212,175,55,0.6));
 50%{transform:scale(1.1);}
 100%{transform:scale(1);}
 }
+  .gold-glow{
+position:relative;
+}
+
+.gold-glow::before{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle at left top, rgba(212,175,55,0.15), transparent 60%);
+pointer-events:none;
+z-index:0;
+}
+  .gold-glow > *{
+position:relative;
+z-index:1;
+}
 </style>
 </head>
 
@@ -434,7 +446,7 @@ every client receives durable, high-quality products delivered on time.
 </div>
 </section>
 
-<section style="margin-top:40px;">
+<section class="gold-glow" style="margin-top:40px;">
 <h2>Our Projects</h2>
 
 <div class="projects">
@@ -464,7 +476,7 @@ every client receives durable, high-quality products delivered on time.
 </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="gold-glow">
 <h2>Request a Quote</h2>
 
 <form onsubmit="submitForm(event)"
@@ -613,7 +625,5 @@ setTimeout(()=>{
 
 },3000);
 </script>
-</body>
-</html>
 </body>
 </html>
