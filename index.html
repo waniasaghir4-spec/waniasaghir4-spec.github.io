@@ -72,6 +72,8 @@ font-size:15px;
 font-weight:500;
 position:relative;
 transition:0.3s;
+padding:6px 10px;
+border-radius:8px;
 }
 
 nav div a::after{
@@ -87,6 +89,8 @@ transition:0.3s;
 
 nav div a:hover{
 color:#d4af37;
+background:rgba(212,175,55,0.1);
+transform:translateY(-2px);
 }
 
 nav div a:hover::after{
@@ -190,9 +194,15 @@ backdrop-filter:blur(8px);
 transition:0.3s;
 }
 
+.card{
+transition:0.3s;
+cursor:pointer;
+}
+
 .card:hover{
-transform:translateY(-5px) scale(1.02);
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(212,175,55,0.15);
+border-color:rgba(212,175,55,0.4);
 }
 
 .projects{
@@ -221,6 +231,17 @@ transform:scale(1.1);
 .project-text{
 padding:12px;
 text-align:left;
+}
+  .project{
+position:relative;
+}
+
+.project::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+pointer-events:none;
 }
 
 .owner-box{
@@ -292,7 +313,10 @@ z-index:9999;
 #body{height:220px;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px;}
 .msg{padding:8px;border-radius:8px;}
 .user{background:#1c2433;align-self:flex-end;}
-.bot{background:rgba(212,175,55,0.15);}
+.bot{
+background:rgba(212,175,55,0.2);
+border-left:3px solid #d4af37;
+}
 #inputBox{display:flex;}
 #input{flex:1;padding:10px;background:#111;color:white;border:none;}
 #send{background:#d4af37;border:none;padding:10px;cursor:pointer;}
@@ -360,6 +384,15 @@ filter: drop-shadow(0 0 15px rgba(212,175,55,0.6));
 <div class="hero-overlay"></div>
 <div class="hero-content">
 <h1>Building UAE Future <br><span>With Strength & Trust</span></h1>
+<p style="margin-top:15px;opacity:0.8;font-size:16px;">
+Trusted supplier of construction materials across the UAE.
+</p>
+
+<div style="display:flex;justify-content:center;gap:25px;margin-top:20px;flex-wrap:wrap;">
+  <div><strong>500+</strong><br><span style="opacity:0.7;">Projects</span></div>
+  <div><strong>10+ Years</strong><br><span style="opacity:0.7;">Experience</span></div>
+  <div><strong>UAE Wide</strong><br><span style="opacity:0.7;">Delivery</span></div>
+</div>
 <div class="btn" onclick="scrollToAbout()">Discover More</div>
 </div>
 </div>
@@ -578,7 +611,7 @@ setTimeout(()=>{
     document.getElementById("splash").style.display="none";
   },800);
 
-},5000);
+},3000);
 </script>
 </body>
 </html>
