@@ -435,21 +435,41 @@ function toggleChat(){
 let box=document.getElementById("chatBox");
 box.style.display = box.style.display==="block" ? "none" : "block";
 }
-function send(){
-let input=document.getElementById("input");
-let text=input.value.trim();
-if(!text) return;
-let div=document.createElement("div");
-div.className="msg user";
-div.innerText=text;
-document.getElementById("body").appendChild(div);
-input.value="";
-setTimeout(()=>{
-let bot=document.createElement("div");
-bot.className="msg bot";
-bot.innerText="We will contact you shortly 📞";
-document.getElementById("body").appendChild(bot);
-},600);
+async function send(){
+  let input = document.getElementById("input");
+  let text = input.value.trim();
+  if(!text) return;
+
+  // show user message
+  let div = document.createElement("div");
+  div.className = "msg user";
+  div.innerText = text;
+  document.getElementById("body").appendChild(div);
+
+  input.value = "";
+
+  try {
+    const res = await fetch("http://localhost:3000/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message: text })
+    });
+
+    const data = await res.json();
+
+    let bot = document.createElement("div");
+    bot.className = "msg bot";
+    bot.innerText = data.reply;
+    document.getElementById("body").appendChild(bot);
+
+  } catch (err) {
+    let bot = document.createElement("div");
+    bot.className = "msg bot";
+    bot.innerText = "AI error. Check server.";
+    document.getElementById("body").appendChild(bot);
+  }
 }
 function submitForm(event){
 event.preventDefault();
